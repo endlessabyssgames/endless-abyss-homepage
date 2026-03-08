@@ -155,9 +155,6 @@ const PressKit = () => {
                 <img src={shot.src} alt={shot.alt} className="w-full h-auto object-cover aspect-video" />
               </div>
             )}
-            <div className="overflow-hidden border border-border">
-              <img src={game.coverImage} alt="Key art" className="w-full h-auto object-cover aspect-video" />
-            </div>
           </div>
         </div>
       </section>
