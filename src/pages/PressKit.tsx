@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link, useParams } from "react-router-dom";
 import { getGameBySlug } from "@/data/games";
+import studioLogo from "@/assets/studio-logo-presskit.png";
+import criticalDescentLogo from "@/assets/critical-descent-logo.png";
 
 const PressKit = () => {
   const { slug } = useParams<{slug: string;}>();
@@ -124,19 +126,19 @@ const PressKit = () => {
             Logos &amp; Branding
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {["Studio Logo (Light)", "Studio Logo (Dark)", "Game Logo"].map((label) =>
-            <div
-              key={label}
-              className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6">
-              
-                <div className="w-16 h-16 border border-foreground/10 flex items-center justify-center mb-4">
-                  <span className="text-[10px] font-display text-foreground/30">LOGO</span>
-                </div>
+            {[
+              { label: "Studio Logo", src: studioLogo },
+              { label: "Game Logo", src: criticalDescentLogo },
+            ].map(({ label, src }) => (
+              <div
+                key={label}
+                className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6">
+                <img src={src} alt={label} className="w-20 h-20 object-contain mb-4" />
                 <p className="text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
                   {label}
                 </p>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </section>
