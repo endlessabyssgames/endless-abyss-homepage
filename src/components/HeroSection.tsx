@@ -1,5 +1,4 @@
 import heroBg from "@/assets/critical-descent-keyart.png";
-import studioLogo from "@/assets/studio-logo.png";
 
 const HeroSection = () => {
   return (
