@@ -22,7 +22,7 @@ const HeroSection = () => {
           Where darkness meets wonder.
         </p>
         <a
-          href="#featured-game"
+          href="#games"
           className="inline-flex items-center gap-3 px-6 py-3 border border-foreground/30 text-foreground text-xs font-display tracking-[0.15em] uppercase hover:bg-foreground hover:text-background transition-all duration-300"
         >
           Explore
