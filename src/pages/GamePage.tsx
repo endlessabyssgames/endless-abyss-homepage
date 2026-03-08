@@ -97,14 +97,24 @@ const GamePage = () => {
             Trailer
           </h2>
           <div className="aspect-video overflow-hidden bg-card border border-border">
-            <div className="w-full h-full flex items-center justify-center text-foreground/20">
-              <div className="text-center">
-                <svg className="w-12 h-12 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <p className="font-display text-xs tracking-[0.2em] uppercase">Trailer Coming Soon</p>
+            {game.trailerUrl ? (
+              <iframe
+                className="w-full h-full"
+                src={game.trailerUrl}
+                title="Game Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-foreground/20">
+                <div className="text-center">
+                  <svg className="w-12 h-12 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <p className="font-display text-xs tracking-[0.2em] uppercase">Trailer Coming Soon</p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
