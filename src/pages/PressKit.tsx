@@ -128,7 +128,7 @@ const PressKit = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
               { label: "Studio Logo", src: studioLogo },
-              { label: "Game Logo", src: criticalDescentLogo },
+              { label: "Critical Descent's Logo", src: criticalDescentLogo },
             ].map(({ label, src }) => (
               <div
                 key={label}
