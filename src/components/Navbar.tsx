@@ -38,6 +38,9 @@ const Navbar = () => {
           <Link to="/games/critical-descent" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase">
             Games
           </Link>
+          <Link to="/blog" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase">
+            Blog
+          </Link>
           <a
             href="/#about"
             onClick={handleAboutClick}
