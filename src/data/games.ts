@@ -16,6 +16,7 @@ export interface GameData {
   steamUrl?: string;
   trailerUrl?: string;
   demoUrl?: string;
+  demoReleased: boolean; // ← Toggle this to true when you release the demo
 }
 
 export const games: GameData[] = [
