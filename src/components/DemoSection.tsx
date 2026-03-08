@@ -18,7 +18,7 @@ const DemoSection = () => {
           target="_blank"
           rel="noopener noreferrer"
           className={`inline-flex items-center gap-3 px-8 py-4 text-xs font-display tracking-[0.15em] uppercase transition-all duration-300 ${
-            demoUrl
+            isReleased
               ? "bg-foreground text-background hover:bg-foreground/80"
               : "border border-foreground/20 text-foreground/30 cursor-not-allowed pointer-events-none"
           }`}
