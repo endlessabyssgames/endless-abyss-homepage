@@ -42,6 +42,9 @@ const Navbar = () => {
         >
           About
         </a>
+        <Link to="/contact" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
+          Contact
+        </Link>
       </div>
     </nav>
   );
