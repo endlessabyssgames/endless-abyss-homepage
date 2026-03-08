@@ -111,7 +111,7 @@ const GamePage = () => {
             {game.trailerUrl ? (
               <iframe
                 className="w-full h-full"
-                src={`${game.trailerUrl}?autoplay=1&mute=1`}
+                src={`${game.trailerUrl}?autoplay=1&mute=1&vq=auto`}
                 title="Game Trailer"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

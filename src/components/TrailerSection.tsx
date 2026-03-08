@@ -18,7 +18,7 @@ const TrailerSection = () => {
   }, [trailerUrl]);
 
   const autoplayUrl = trailerUrl && isVisible
-    ? `${trailerUrl}?autoplay=1&mute=1`
+    ? `${trailerUrl}?autoplay=1&mute=1&vq=auto`
     : trailerUrl || "";
 
   return (
