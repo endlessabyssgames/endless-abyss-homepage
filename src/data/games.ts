@@ -45,7 +45,7 @@ export const games: GameData[] = [
     ],
     status: "In Development",
     steamUrl: "#", // Replace with your Steam store URL
-    trailerUrl: "", // Paste your YouTube embed URL here, e.g. "https://www.youtube.com/embed/YOUR_VIDEO_ID"
+    trailerUrl: "https://www.youtube.com/embed/dlTB8hDrDvg",
   },
 ];
 
