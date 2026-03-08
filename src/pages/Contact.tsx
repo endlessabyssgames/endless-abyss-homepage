@@ -54,7 +54,7 @@ const Contact = () => {
             ))}
           </div>
 
-          <div className="mt-16 pt-12 border-t border-border">
+          <div className="mt-8 pt-8 border-t border-border">
             <h2 className="text-lg font-display font-bold text-foreground uppercase tracking-tight mb-6">
               Follow Us
             </h2>
