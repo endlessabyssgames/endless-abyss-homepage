@@ -1,13 +1,15 @@
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link, useParams } from "react-router-dom";
 import { getGameBySlug } from "@/data/games";
-import { useState } from "react";
 
 const GamePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const game = getGameBySlug(slug || "");
   const [activeScreenshot, setActiveScreenshot] = useState(0);
+
+  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
   if (!game) {
     return (
