@@ -23,6 +23,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/games/:slug" element={<GamePage />} />
           <Route path="/games/:slug/press" element={<PressKit />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

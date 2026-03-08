@@ -75,6 +75,13 @@ const Navbar = () => {
           >
             Games
           </Link>
+          <Link
+            to="/blog"
+            onClick={() => setMenuOpen(false)}
+            className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase"
+          >
+            Blog
+          </Link>
           <a
             href="/#about"
             onClick={handleAboutClick}
