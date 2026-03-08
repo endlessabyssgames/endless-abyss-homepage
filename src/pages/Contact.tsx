@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 const contactEmails = [
   {
     label: "General Inquiries",
-    email: "contact@example.com",
+    email: "contact@endlessabyssgames.com",
     description: "For general questions about our studio and games.",
   },
   {
