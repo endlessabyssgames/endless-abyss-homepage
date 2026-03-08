@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link, useParams } from "react-router-dom";
@@ -6,6 +7,8 @@ import { getGameBySlug } from "@/data/games";
 const PressKit = () => {
   const { slug } = useParams<{ slug: string }>();
   const game = getGameBySlug(slug || "");
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   if (!game) {
     return (
