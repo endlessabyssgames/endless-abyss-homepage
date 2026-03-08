@@ -132,9 +132,9 @@ const PressKit = () => {
             ].map(({ label, src }) => (
               <div
                 key={label}
-                className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6">
-                <img src={src} alt={label} className="w-20 h-20 object-contain mb-4" />
-                <p className="text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
+                className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6 relative">
+                <img src={src} alt={label} className="w-full h-full object-contain p-4" />
+                <p className="absolute bottom-3 text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
                   {label}
                 </p>
               </div>
@@ -162,17 +162,6 @@ const PressKit = () => {
         </div>
       </section>
 
-      {/* Key Art */}
-      <section className="py-16 px-8 md:px-12 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-lg font-display font-bold text-foreground uppercase tracking-tight mb-8">
-            Key Art
-          </h2>
-          <div className="overflow-hidden border border-border">
-            <img src={game.coverImage} alt={`${game.title} key art`} className="w-full h-auto object-cover aspect-video" />
-          </div>
-        </div>
-      </section>
 
       <div className="py-16" />
       <Footer />
