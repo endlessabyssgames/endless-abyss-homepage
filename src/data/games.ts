@@ -13,6 +13,7 @@ export interface GameData {
   screenshots: { src: string; alt: string }[];
   details: { label: string; value: string }[];
   status: string;
+  steamUrl?: string;
 }
 
 export const games: GameData[] = [
