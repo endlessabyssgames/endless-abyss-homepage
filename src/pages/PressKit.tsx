@@ -63,7 +63,7 @@ const PressKit = () => {
             <dl className="space-y-4 text-sm font-body">
               {[
                 ["Studio", "Endless Abyss Games"],
-                ["Founded", "2024"],
+                ["Founded", "2026"],
                 ["Location", "—"],
                 ["Website", "endlessabyssgames.com"],
                 ["Contact", "press@endlessabyssgames.com"],
