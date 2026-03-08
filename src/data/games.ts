@@ -1,7 +1,7 @@
 import screenshot1 from "@/assets/screenshot-1.jpg";
 import screenshot2 from "@/assets/screenshot-2.jpg";
 import screenshot3 from "@/assets/screenshot-3.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
+import criticalDescentKeyart from "@/assets/critical-descent-keyart.png";
 
 export interface GameData {
   slug: string;
