@@ -1,17 +1,26 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import screenshot1 from "@/assets/screenshot-1.jpg";
-import screenshot2 from "@/assets/screenshot-2.jpg";
-import screenshot3 from "@/assets/screenshot-3.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
-
-const pressScreenshots = [
-  { src: screenshot1, alt: "Warrior at the edge of the abyss" },
-  { src: screenshot2, alt: "Ancient bioluminescent ruins" },
-  { src: screenshot3, alt: "Crystal caverns underground" },
-];
+import { Link, useParams } from "react-router-dom";
+import { getGameBySlug } from "@/data/games";
 
 const PressKit = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const game = getGameBySlug(slug || "");
+
+  if (!game) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Navbar />
+        <div className="text-center">
+          <h1 className="text-4xl font-display font-bold text-foreground mb-4">Not Found</h1>
+          <Link to="/" className="text-xs font-display tracking-[0.15em] text-foreground/50 hover:text-foreground uppercase">
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -19,14 +28,23 @@ const PressKit = () => {
       {/* Header */}
       <section className="pt-32 pb-16 px-8 md:px-12">
         <div className="max-w-4xl mx-auto">
+          <Link
+            to={`/games/${game.slug}`}
+            className="inline-flex items-center gap-2 text-xs font-display tracking-[0.15em] text-foreground/40 hover:text-foreground uppercase mb-8 transition-colors"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M19 12H5m7-7l-7 7 7 7" />
+            </svg>
+            {game.title}
+          </Link>
           <p className="text-xs font-display tracking-[0.2em] text-foreground/40 uppercase mb-4">
             Press Kit
           </p>
           <h1 className="text-4xl md:text-5xl font-bold font-display text-foreground uppercase tracking-tight mb-6">
-            Endless Abyss Games
+            {game.title}
           </h1>
           <p className="text-foreground/50 text-sm md:text-base font-body leading-relaxed max-w-2xl">
-            Everything you need for coverage. All assets are free to use in 
+            Everything you need for coverage. All assets are free to use in
             editorial content about Endless Abyss Games and our titles.
           </p>
         </div>
@@ -73,19 +91,11 @@ const PressKit = () => {
       <section className="py-16 px-8 md:px-12 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-lg font-display font-bold text-foreground uppercase tracking-tight mb-6">
-            Echoes of the Abyss — Game Fact Sheet
+            {game.title} — Game Fact Sheet
           </h2>
           <div className="grid md:grid-cols-2 gap-16">
             <dl className="space-y-4 text-sm font-body">
-              {[
-                ["Title", "Echoes of the Abyss"],
-                ["Genre", "Action RPG"],
-                ["Platform", "PC"],
-                ["Engine", "Unreal Engine 5"],
-                ["Players", "Single Player"],
-                ["Status", "In Development"],
-                ["Release", "TBA"],
-              ].map(([label, value]) => (
+              {game.details.map(({ label, value }) => (
                 <div key={label} className="flex justify-between border-b border-border pb-3">
                   <dt className="text-foreground/40">{label}</dt>
                   <dd className="text-foreground/70">{value}</dd>
@@ -97,11 +107,7 @@ const PressKit = () => {
                 Synopsis
               </h3>
               <p className="text-foreground/50 text-sm font-body leading-relaxed">
-                Descend into a shattered world where ancient magic pulses beneath
-                crumbling ruins. As the last Voidwalker, unravel the mystery of the
-                Endless Abyss — a living chasm that consumes reality itself.
-                Battle eldritch creatures, forge alliances with forgotten gods, and
-                decide the fate of a world teetering on oblivion.
+                {game.description}
               </p>
             </div>
           </div>
@@ -115,7 +121,6 @@ const PressKit = () => {
             Logos &amp; Branding
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {/* Logo placeholder cards */}
             {["Studio Logo (Light)", "Studio Logo (Dark)", "Game Logo"].map((label) => (
               <div
                 key={label}
@@ -140,13 +145,13 @@ const PressKit = () => {
             Screenshots
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {pressScreenshots.map((shot, i) => (
+            {game.screenshots.map((shot, i) => (
               <div key={i} className="overflow-hidden border border-border">
                 <img src={shot.src} alt={shot.alt} className="w-full h-auto object-cover aspect-video" />
               </div>
             ))}
             <div className="overflow-hidden border border-border">
-              <img src={heroBg} alt="Key art" className="w-full h-auto object-cover aspect-video" />
+              <img src={game.coverImage} alt="Key art" className="w-full h-auto object-cover aspect-video" />
             </div>
           </div>
         </div>
@@ -159,7 +164,7 @@ const PressKit = () => {
             Key Art
           </h2>
           <div className="overflow-hidden border border-border">
-            <img src={heroBg} alt="Echoes of the Abyss key art" className="w-full h-auto object-cover aspect-video" />
+            <img src={game.coverImage} alt={`${game.title} key art`} className="w-full h-auto object-cover aspect-video" />
           </div>
         </div>
       </section>
