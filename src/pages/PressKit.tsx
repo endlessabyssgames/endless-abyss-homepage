@@ -5,10 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import { getGameBySlug } from "@/data/games";
 
 const PressKit = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams<{slug: string;}>();
   const game = getGameBySlug(slug || "");
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => {window.scrollTo(0, 0);}, []);
 
   if (!game) {
     return (
@@ -20,8 +20,8 @@ const PressKit = () => {
             Back to Home
           </Link>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -33,8 +33,8 @@ const PressKit = () => {
         <div className="max-w-4xl mx-auto">
           <Link
             to={`/games/${game.slug}`}
-            className="inline-flex items-center gap-2 text-xs font-display tracking-[0.15em] text-foreground/40 hover:text-foreground uppercase mb-8 transition-colors duration-300"
-          >
+            className="inline-flex items-center gap-2 text-xs font-display tracking-[0.15em] text-foreground/40 hover:text-foreground uppercase mb-8 transition-colors duration-300">
+            
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5m7-7l-7 7 7 7" />
             </svg>
@@ -62,17 +62,17 @@ const PressKit = () => {
             </h2>
             <dl className="space-y-4 text-sm font-body">
               {[
-                ["Studio", "Endless Abyss Games"],
-                ["Founded", "2026"],
-                
-                ["Website", "endlessabyssgames.com"],
-                ["Contact", "press@endlessabyssgames.com"],
-              ].map(([label, value]) => (
-                <div key={label} className="flex justify-between border-b border-border pb-3">
+              ["Studio", "Endless Abyss Games"],
+              ["Founded", "2026"],
+
+              ["Website", "endlessabyssgames.com"],
+              ["Contact", "press@endlessabyssgames.com"]].
+              map(([label, value]) =>
+              <div key={label} className="flex justify-between border-b border-border pb-3">
                   <dt className="text-foreground/40">{label}</dt>
                   <dd className="text-foreground/70">{value}</dd>
                 </div>
-              ))}
+              )}
             </dl>
           </div>
 
@@ -81,10 +81,10 @@ const PressKit = () => {
               Description
             </h2>
             <p className="text-foreground/50 text-sm font-body leading-relaxed">
-              Endless Abyss Games is an independent game studio dedicated to
-              crafting atmospheric, story-driven experiences. We focus on dark
-              fantasy worlds with rich lore, meaningful player choices, and
-              immersive exploration.
+              Endless Abyss Games is an independent game studio dedicated to crafting atmospheric, realistic, and most of all, immersive game experiences. We strive to provide the best games we possibly can with every release.                       
+            
+
+
             </p>
           </div>
         </div>
@@ -98,12 +98,12 @@ const PressKit = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-16">
             <dl className="space-y-4 text-sm font-body">
-              {game.details.map(({ label, value }) => (
-                <div key={label} className="flex justify-between border-b border-border pb-3">
+              {game.details.map(({ label, value }) =>
+              <div key={label} className="flex justify-between border-b border-border pb-3">
                   <dt className="text-foreground/40">{label}</dt>
                   <dd className="text-foreground/70">{value}</dd>
                 </div>
-              ))}
+              )}
             </dl>
             <div>
               <h3 className="text-sm font-display font-bold text-foreground uppercase tracking-tight mb-4">
@@ -124,11 +124,11 @@ const PressKit = () => {
             Logos &amp; Branding
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {["Studio Logo (Light)", "Studio Logo (Dark)", "Game Logo"].map((label) => (
-              <div
-                key={label}
-                className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6"
-              >
+            {["Studio Logo (Light)", "Studio Logo (Dark)", "Game Logo"].map((label) =>
+            <div
+              key={label}
+              className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6">
+              
                 <div className="w-16 h-16 border border-foreground/10 flex items-center justify-center mb-4">
                   <span className="text-[10px] font-display text-foreground/30">LOGO</span>
                 </div>
@@ -136,7 +136,7 @@ const PressKit = () => {
                   {label}
                 </p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -148,11 +148,11 @@ const PressKit = () => {
             Screenshots
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {game.screenshots.map((shot, i) => (
-              <div key={i} className="overflow-hidden border border-border">
+            {game.screenshots.map((shot, i) =>
+            <div key={i} className="overflow-hidden border border-border">
                 <img src={shot.src} alt={shot.alt} className="w-full h-auto object-cover aspect-video" />
               </div>
-            ))}
+            )}
             <div className="overflow-hidden border border-border">
               <img src={game.coverImage} alt="Key art" className="w-full h-auto object-cover aspect-video" />
             </div>
@@ -174,8 +174,8 @@ const PressKit = () => {
 
       <div className="py-16" />
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default PressKit;
