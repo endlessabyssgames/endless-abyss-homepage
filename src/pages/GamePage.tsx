@@ -163,7 +163,7 @@ const GamePage = () => {
                 className="w-full h-auto object-cover aspect-video"
               />
             </div>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-5 gap-3">
               {game.screenshots.map((shot, i) => (
                 <button
                   key={i}
