@@ -17,7 +17,7 @@ const AboutStudio = () => {
         </p>
         <div className="flex gap-16 text-foreground/40">
           <div>
-            <p className="text-3xl font-display font-bold text-foreground">2024</p>
+            <p className="text-3xl font-display font-bold text-foreground">2026</p>
             <p className="text-xs mt-2 tracking-[0.1em] uppercase">Founded</p>
           </div>
           <div>
@@ -26,8 +26,8 @@ const AboutStudio = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AboutStudio;
