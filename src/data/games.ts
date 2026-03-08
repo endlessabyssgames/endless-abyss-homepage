@@ -1,7 +1,7 @@
 import screenshot1 from "@/assets/screenshot-1.jpg";
 import screenshot2 from "@/assets/screenshot-2.jpg";
 import screenshot3 from "@/assets/screenshot-3.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
+import criticalDescentKeyart from "@/assets/critical-descent-keyart.png";
 
 export interface GameData {
   slug: string;
@@ -28,7 +28,7 @@ export const games: GameData[] = [
       "Battle eldritch creatures, forge alliances with forgotten gods, and decide the fate of a world teetering on oblivion. Every choice pulls you deeper. Every shadow hides a truth you may not be ready to face.",
       "Featuring a hand-crafted dark fantasy world, punishing but fair combat, and a branching narrative shaped by your decisions, Critical Descent is a journey into the unknown — and there's no coming back.",
     ],
-    coverImage: heroBg,
+    coverImage: criticalDescentKeyart,
     screenshots: [
       { src: screenshot1, alt: "Warrior at the edge of the abyss" },
       { src: screenshot2, alt: "Ancient bioluminescent ruins" },
