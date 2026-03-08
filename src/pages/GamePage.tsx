@@ -67,10 +67,21 @@ const GamePage = () => {
             <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-6">
               About the Game
             </h2>
-            <div className="space-y-4 text-foreground/50 text-sm leading-relaxed font-body">
-              {game.longDescription.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+            <div className="space-y-6 text-sm leading-relaxed font-body">
+              {game.longDescription.map((p, i) => {
+                const parts = p.split("\n\n");
+                if (parts.length > 1) {
+                  return (
+                    <div key={i}>
+                      <h3 className="text-foreground font-display font-bold uppercase tracking-tight text-base mb-3">
+                        {parts[0]}
+                      </h3>
+                      <p className="text-foreground/50">{parts[1]}</p>
+                    </div>
+                  );
+                }
+                return <p key={i} className="text-foreground/50">{p}</p>;
+              })}
             </div>
           </div>
 
