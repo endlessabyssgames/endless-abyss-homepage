@@ -14,6 +14,7 @@ export interface GameData {
   details: { label: string; value: string }[];
   status: string;
   steamUrl?: string;
+  trailerUrl?: string;
 }
 
 export const games: GameData[] = [
