@@ -49,6 +49,7 @@ export const games: GameData[] = [
     steamUrl: "#", // Replace with your Steam store URL
     trailerUrl: "https://www.youtube.com/embed/dlTB8hDrDvg",
     demoUrl: "", // Paste your Steam demo URL here
+    demoReleased: false, // ← Change to true when the demo is live
   },
 ];
 
