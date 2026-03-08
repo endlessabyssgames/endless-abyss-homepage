@@ -1,14 +1,24 @@
 import heroBg from "@/assets/critical-descent-keyart.png";
+import studioLogo from "@/assets/studio-logo.png";
 
 const HeroSection = () => {
   return (
     <section className="relative h-screen flex items-end overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       <div className="absolute inset-0 bg-background/50" />
       <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background to-transparent" />
+
+      {/* Studio logo overlay */}
+      <div className="absolute inset-0 flex items-center justify-center z-[1]">
+        <img
+          src={studioLogo}
+          alt="Endless Abyss Games"
+          className="w-48 md:w-64 lg:w-80 opacity-20"
+        />
+      </div>
 
       <div className="relative z-10 px-8 md:px-12 pb-24 max-w-3xl">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight mb-5 text-foreground uppercase leading-[0.95]">
