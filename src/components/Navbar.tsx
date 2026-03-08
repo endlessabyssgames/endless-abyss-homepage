@@ -16,9 +16,6 @@ const Navbar = () => {
         <Link to="/games/echoes-of-the-abyss" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
           Games
         </Link>
-        <Link to="/press" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
-          Press
-        </Link>
         <a href="/#about" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
           About
         </a>
