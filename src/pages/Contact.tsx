@@ -45,7 +45,7 @@ const Contact = () => {
                 </div>
                 <a
                   href={`mailto:${email}`}
-                  className="inline-flex items-center gap-3 px-4 sm:px-6 py-3 border border-foreground/30 text-foreground text-[9px] sm:text-xs font-display tracking-[0.08em] sm:tracking-[0.15em] uppercase hover:bg-foreground hover:text-background transition-all duration-300 whitespace-nowrap"
+                  className="inline-flex items-center gap-3 px-6 py-3 border border-foreground/30 text-foreground font-display tracking-[0.15em] uppercase hover:bg-foreground hover:text-background transition-all duration-300 text-[clamp(8px,2.5vw,12px)]"
                 >
                   <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect width="20" height="16" x="2" y="4" rx="2" />
