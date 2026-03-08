@@ -1,4 +1,4 @@
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/critical-descent-keyart.png";
 
 const HeroSection = () => {
   return (
