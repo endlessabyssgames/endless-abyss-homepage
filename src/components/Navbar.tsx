@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useCallback } from "react";
+import studioLogo from "@/assets/studio-logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
