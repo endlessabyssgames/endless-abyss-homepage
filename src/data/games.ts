@@ -43,6 +43,7 @@ export const games: GameData[] = [
       { label: "Release", value: "2026" },
     ],
     status: "In Development",
+    steamUrl: "#", // Replace with your Steam store URL
   },
 ];
 
