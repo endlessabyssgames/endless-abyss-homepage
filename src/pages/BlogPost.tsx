@@ -6,10 +6,10 @@ import Footer from "@/components/Footer";
 import { getBlogPostBySlug } from "@/data/blog";
 
 const BlogPost = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams<{slug: string;}>();
   const post = getBlogPostBySlug(slug || "");
 
-  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+  useEffect(() => {window.scrollTo(0, 0);}, [slug]);
 
   if (!post) {
     return (
@@ -21,8 +21,8 @@ const BlogPost = () => {
             Back to Blog
           </Link>
         </div>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -33,8 +33,8 @@ const BlogPost = () => {
         <div className="max-w-3xl mx-auto">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-xs font-display tracking-[0.15em] text-foreground/40 hover:text-foreground uppercase mb-8 transition-colors duration-300"
-          >
+            className="inline-flex items-center gap-2 text-xs font-display tracking-[0.15em] text-foreground/40 hover:text-foreground uppercase mb-8 transition-colors duration-300">
+            
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5m7-7l-7 7 7 7" />
             </svg>
@@ -46,17 +46,17 @@ const BlogPost = () => {
               {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
-                day: "numeric",
+                day: "numeric"
               })}
             </time>
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase border border-border px-2 py-0.5"
-              >
+            {post.tags.map((tag) =>
+            <span
+              key={tag}
+              className="text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase border border-border px-2 py-0.5">
+              
                 {tag}
               </span>
-            ))}
+            )}
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold font-display text-foreground uppercase tracking-tight mb-10">
@@ -69,62 +69,62 @@ const BlogPost = () => {
         <div className="max-w-3xl mx-auto prose-custom">
           <ReactMarkdown
             components={{
-              h2: ({ children }) => (
-                <h2 className="text-lg font-display font-bold text-foreground uppercase tracking-tight mt-10 mb-4">
+              h2: ({ children }) =>
+              <h2 className="text-lg font-display font-bold text-foreground uppercase tracking-tight mt-10 mb-4">
                   {children}
-                </h2>
-              ),
-              h3: ({ children }) => (
-                <h3 className="text-base font-display font-bold text-foreground uppercase tracking-tight mt-8 mb-3">
+                </h2>,
+
+              h3: ({ children }) =>
+              <h3 className="text-base font-display font-bold text-foreground uppercase tracking-tight mt-8 mb-3">
                   {children}
-                </h3>
-              ),
-              p: ({ children }) => (
-                <p className="text-foreground/50 text-sm font-body leading-relaxed mb-5">
+                </h3>,
+
+              p: ({ children }) =>
+              <p className="text-foreground/50 text-sm font-body leading-relaxed mb-5">
                   {children}
-                </p>
-              ),
-              ul: ({ children }) => (
-                <ul className="space-y-2 mb-6 ml-4">{children}</ul>
-              ),
-              li: ({ children }) => (
-                <li className="text-foreground/50 text-sm font-body leading-relaxed flex items-start gap-2">
-                  <span className="text-foreground/20 mt-1.5">—</span>
+                </p>,
+
+              ul: ({ children }) =>
+              <ul className="space-y-2 mb-6 ml-4">{children}</ul>,
+
+              li: ({ children }) =>
+              <li className="text-foreground/50 text-sm font-body leading-relaxed flex items-start gap-2">
+                  <span className="text-foreground/20 mt-1.5">​  </span>
                   <span>{children}</span>
-                </li>
-              ),
-              strong: ({ children }) => (
-                <strong className="text-foreground/70 font-bold">{children}</strong>
-              ),
-              em: ({ children }) => (
-                <em className="text-foreground/40 italic">{children}</em>
-              ),
-              a: ({ href, children }) => (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground/60 underline underline-offset-4 hover:text-foreground transition-colors duration-300"
-                >
+                </li>,
+
+              strong: ({ children }) =>
+              <strong className="text-foreground/70 font-bold">{children}</strong>,
+
+              em: ({ children }) =>
+              <em className="text-foreground/40 italic">{children}</em>,
+
+              a: ({ href, children }) =>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/60 underline underline-offset-4 hover:text-foreground transition-colors duration-300">
+                
                   {children}
-                </a>
-              ),
+                </a>,
+
               hr: () => <hr className="border-border my-10" />,
-              blockquote: ({ children }) => (
-                <blockquote className="border-l-2 border-foreground/20 pl-5 my-6 italic text-foreground/40">
+              blockquote: ({ children }) =>
+              <blockquote className="border-l-2 border-foreground/20 pl-5 my-6 italic text-foreground/40">
                   {children}
                 </blockquote>
-              ),
-            }}
-          >
+
+            }}>
+            
             {post.content}
           </ReactMarkdown>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default BlogPost;
