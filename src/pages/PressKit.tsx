@@ -9,7 +9,6 @@ const PressKit = () => {
   const game = getGameBySlug(slug || "");
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
-  const game = getGameBySlug(slug || "");
 
   if (!game) {
     return (
