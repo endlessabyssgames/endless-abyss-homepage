@@ -19,7 +19,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/games/echoes-of-the-abyss" element={<GamePage />} />
-          <Route path="/press" element={<PressKit />} />
+          <Route path="/games/echoes-of-the-abyss/press" element={<PressKit />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

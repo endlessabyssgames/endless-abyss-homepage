@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 import screenshot1 from "@/assets/screenshot-1.jpg";
 import screenshot2 from "@/assets/screenshot-2.jpg";
 import screenshot3 from "@/assets/screenshot-3.jpg";
@@ -134,6 +135,21 @@ const GamePage = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Press Kit Link */}
+      <section className="px-8 md:px-12 pb-32 border-t border-border pt-16">
+        <div className="max-w-6xl mx-auto">
+          <Link
+            to="/games/echoes-of-the-abyss/press"
+            className="inline-flex items-center gap-3 px-6 py-3 border border-foreground/30 text-foreground text-xs font-display tracking-[0.15em] uppercase hover:bg-foreground hover:text-background transition-all duration-300"
+          >
+            Press Kit
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14m-7-7l7 7-7 7"/>
+            </svg>
+          </Link>
         </div>
       </section>
 
