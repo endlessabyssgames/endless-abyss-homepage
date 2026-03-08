@@ -29,9 +29,10 @@ export const games: GameData[] = [
     description:
       "Master the hardcore, Starship-style catch maneuver in Critical Descent. Pilot massive boosters and agile upper stages across 50+ handcrafted levels on Earth, the Moon, and Mars. Featuring global leaderboards, multiple difficulties, and a realistic physics system, for the ultimate landing experience.",
     longDescription: [
-      "Master the hardcore, Starship-style catch maneuver in Critical Descent. Pilot massive boosters and agile upper stages across 50+ handcrafted levels on Earth, the Moon, and Mars. Featuring global leaderboards, multiple difficulties, and a realistic physics system, for the ultimate landing experience.",
-      "Battle eldritch creatures, forge alliances with forgotten gods, and decide the fate of a world teetering on oblivion. Every choice pulls you deeper. Every shadow hides a truth you may not be ready to face.",
-      "Featuring a hand-crafted dark fantasy world, punishing but fair combat, and a branching narrative shaped by your decisions, Critical Descent is a journey into the unknown — and there's no coming back.",
+      "MASTER THE PERFECT LANDING\n\nCritical Descent is a game about mastery, repetition, and the perfect execution of one of the most awe-inspiring landing maneuvers ever. Each level challenges your ability to fly the rocket all the way down for a smooth catch in the tower's arms.",
+      "FLY, FAIL, LEARN\n\nOver 50 handcrafted levels await, each with unique scenarios and increasing difficulty. Execute precise maneuvers, pull off incredible descents, and fail repeatedly, learning after every failure until you finally achieve the perfect landing.",
+      "Choose from different difficulty options, with an easier mode for new players including a smart throttling system and automatic actuation of the chopsticks, or full manual control for more experienced players.",
+      "Pilot both the massive booster, and the more agile upper stage, and attempt landings across Earth, the Moon and Mars in all different weather conditions.",
     ],
     coverImage: criticalDescentKeyart,
     screenshots: [
