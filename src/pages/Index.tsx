@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import GamesSection from "@/components/GamesSection";
+import TrailerSection from "@/components/TrailerSection";
 import AboutStudio from "@/components/AboutStudio";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <GamesSection />
+      <TrailerSection />
       <AboutStudio />
       <Footer />
     </div>
