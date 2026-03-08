@@ -64,7 +64,7 @@ const PressKit = () => {
               {[
                 ["Studio", "Endless Abyss Games"],
                 ["Founded", "2026"],
-                ["Location", "—"],
+                
                 ["Website", "endlessabyssgames.com"],
                 ["Contact", "press@endlessabyssgames.com"],
               ].map(([label, value]) => (
