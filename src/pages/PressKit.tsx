@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link, useParams } from "react-router-dom";
 import { getGameBySlug } from "@/data/games";
+import studioLogo from "@/assets/studio-logo-presskit.png";
+import criticalDescentLogo from "@/assets/critical-descent-logo.png";
 
 const PressKit = () => {
   const { slug } = useParams<{slug: string;}>();
