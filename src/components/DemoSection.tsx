@@ -2,7 +2,7 @@ import { games } from "@/data/games";
 
 const DemoSection = () => {
   const game = games[0];
-  const demoUrl = game?.demoUrl;
+  const isReleased = game?.demoReleased;
 
   return (
     <section id="demo" className="py-32 px-8 md:px-12">
