@@ -8,6 +8,9 @@ const PressKit = () => {
   const { slug } = useParams<{ slug: string }>();
   const game = getGameBySlug(slug || "");
 
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+  const game = getGameBySlug(slug || "");
+
   if (!game) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
