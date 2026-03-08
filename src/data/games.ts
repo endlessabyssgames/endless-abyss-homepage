@@ -15,6 +15,7 @@ export interface GameData {
   status: string;
   steamUrl?: string;
   trailerUrl?: string;
+  demoUrl?: string;
 }
 
 export const games: GameData[] = [
