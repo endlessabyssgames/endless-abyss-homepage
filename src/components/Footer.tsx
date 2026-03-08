@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const socialLinks = [
   {
     label: "X",
@@ -18,16 +20,6 @@ const socialLinks = [
       </svg>
     ),
   },
-  {
-    label: "Email",
-    href: "mailto:hello@example.com", // Replace with your email
-    icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect width="20" height="16" x="2" y="4" rx="2" />
-        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-      </svg>
-    ),
-  },
 ];
 
 const Footer = () => {
@@ -42,14 +34,24 @@ const Footer = () => {
             <a
               key={link.label}
               href={link.href}
-              target={link.label !== "Email" ? "_blank" : undefined}
-              rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={link.label}
               className="text-foreground/30 hover:text-foreground transition-colors duration-300"
             >
               {link.icon}
             </a>
           ))}
+          <Link
+            to="/contact"
+            aria-label="Contact"
+            className="text-foreground/30 hover:text-foreground transition-colors duration-300"
+          >
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </Link>
         </div>
         <p className="text-xs text-foreground/30">
           © {new Date().getFullYear()} Endless Abyss Games. All rights reserved.
