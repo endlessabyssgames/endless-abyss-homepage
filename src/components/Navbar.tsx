@@ -31,17 +31,17 @@ const Navbar = () => {
       </Link>
 
       <div className="hidden md:flex items-center gap-8">
-        <Link to="/games/critical-descent" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
+        <Link to="/games/critical-descent" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase">
           Games
         </Link>
         <a
           href="/#about"
           onClick={handleAboutClick}
-          className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase"
+          className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase"
         >
           About
         </a>
-        <Link to="/contact" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
+        <Link to="/contact" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase">
           Contact
         </Link>
       </div>
