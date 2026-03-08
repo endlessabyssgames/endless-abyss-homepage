@@ -74,7 +74,7 @@ const Contact = () => {
                 <span className="text-xs font-display tracking-[0.15em] uppercase">X / Twitter</span>
               </a>
               <a
-                href="#" // Replace with your YouTube URL
+                href="https://youtube.com/@endlessabyssgames?si=D3WikgCdN573qKzT"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-foreground/40 hover:text-foreground transition-colors duration-300"
