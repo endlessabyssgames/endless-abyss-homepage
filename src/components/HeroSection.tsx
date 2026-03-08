@@ -1,10 +1,10 @@
-import heroBg from "@/assets/critical-descent-keyart.png";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative h-screen flex items-end overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       <div className="absolute inset-0 bg-background/50" />
