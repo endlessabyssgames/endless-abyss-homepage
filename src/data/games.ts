@@ -35,9 +35,11 @@ export const games: GameData[] = [
     ],
     coverImage: criticalDescentKeyart,
     screenshots: [
-      { src: screenshot1, alt: "Warrior at the edge of the abyss" },
-      { src: screenshot2, alt: "Ancient bioluminescent ruins" },
-      { src: screenshot3, alt: "Crystal caverns underground" },
+      { src: screenshot1, alt: "Booster descending toward the launch tower" },
+      { src: screenshot2, alt: "Upper stage performing landing burn in overcast skies" },
+      { src: screenshot3, alt: "Booster approaching catch arms at low altitude" },
+      { src: screenshot4, alt: "Rocket descent during sunset over the launch site" },
+      { src: screenshot5, alt: "Explosive crash landing at the tower" },
     ],
     details: [
       { label: "Genre", value: "High-Precision Flight Sim" },
