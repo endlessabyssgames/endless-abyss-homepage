@@ -14,7 +14,7 @@ const DemoSection = () => {
           Experience Critical Descent for yourself. Download the free demo and master the art of precision landing.
         </p>
         <a
-          href={demoUrl || "#"}
+          href={isReleased && game?.demoUrl ? game.demoUrl : "#"}
           target="_blank"
           rel="noopener noreferrer"
           className={`inline-flex items-center gap-3 px-8 py-4 text-xs font-display tracking-[0.15em] uppercase transition-all duration-300 ${
