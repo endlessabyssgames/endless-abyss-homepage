@@ -133,8 +133,8 @@ const PressKit = () => {
               <div
                 key={label}
                 className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6">
-                <img src={src} alt={label} className="w-20 h-20 object-contain mb-4" />
-                <p className="text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
+                <img src={src} alt={label} className="w-full h-full object-contain p-4" />
+                <p className="absolute bottom-3 text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
                   {label}
                 </p>
               </div>
