@@ -20,35 +20,39 @@ export interface BlogPost {
  *   tags: ["devlog", "update"],
  *   content: `
  * Your **markdown** content here.
- *
- * Supports headings, lists, links, images, code blocks, etc.
  *   `,
  * },
  */
 export const blogPosts: BlogPost[] = [
   {
-    slug: "hello-world",
-    title: "Hello World — Welcome to Our Blog",
+    slug: "we-are-live",
+    title: "We're Live — Endless Abyss Games Has a Home",
     date: "2026-03-08",
     excerpt:
-      "We're excited to launch the Endless Abyss Games blog. Follow along for development updates, behind-the-scenes insights, and announcements.",
+      "Our website is officially online, and so is this blog. Here's what to expect from Endless Abyss Games going forward.",
     tags: ["announcement"],
     content: `
-Welcome to the official Endless Abyss Games blog!
+We're thrilled to announce that the official Endless Abyss Games website is now live — and you're looking at it.
 
-This is where we'll be sharing development updates, behind-the-scenes looks at our games, and studio news.
+This has been a long time coming. We wanted a proper home for the studio where we can share what we're working on, talk about our games, and keep you in the loop on everything happening behind the scenes.
 
-## What to Expect
+## The Blog
 
-- **Dev Logs** — Deep dives into the development of Critical Descent and future titles
-- **Announcements** — Release dates, demo launches, and major milestones
-- **Behind the Scenes** — Art, design, and engineering breakdowns
+Along with the site, we're launching this blog. This is where you'll find:
 
-## Stay Tuned
+- **Dev Logs** — Deep dives into the development of Critical Descent and future projects
+- **Announcements** — Release dates, demo launches, trailers, and milestones
+- **Behind the Scenes** — Art, design, engineering, and the occasional post-mortem
 
-We have a lot of exciting things in the pipeline. Follow us and check back regularly for updates.
+We want to be transparent about our process and share the journey with you — the good, the bad, and the explosive crash landings.
 
-Thanks for being here from the beginning.
+## What's Next
+
+Critical Descent is in active development and we have a lot to show. Expect dev logs, gameplay breakdowns, and some announcements very soon.
+
+In the meantime, feel free to explore the site, [wishlist Critical Descent on Steam](https://store.steampowered.com/app/4329160/Critical_Descent/), and check back here for updates.
+
+Thanks for being here from the start.
 
 *— Endless Abyss Games*
     `,
