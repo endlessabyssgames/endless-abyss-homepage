@@ -10,7 +10,7 @@ const contactEmails = [
   },
   {
     label: "Press & Media",
-    email: "press@example.com",
+    email: "press@endlessabyssgames.com",
     description: "For press inquiries, review copies, and media coverage.",
   },
 ];
