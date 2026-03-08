@@ -4,18 +4,13 @@ import Footer from "@/components/Footer";
 const contactEmails = [
   {
     label: "General Inquiries",
-    email: "hello@example.com",
+    email: "contact@example.com",
     description: "For general questions about our studio and games.",
   },
   {
     label: "Press & Media",
     email: "press@example.com",
     description: "For press inquiries, review copies, and media coverage.",
-  },
-  {
-    label: "Business & Partnerships",
-    email: "business@example.com",
-    description: "For business proposals and partnership opportunities.",
   },
 ];
 
