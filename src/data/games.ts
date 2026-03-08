@@ -14,6 +14,7 @@ export interface GameData {
   details: { label: string; value: string }[];
   status: string;
   steamUrl?: string;
+  trailerUrl?: string;
 }
 
 export const games: GameData[] = [
@@ -44,6 +45,7 @@ export const games: GameData[] = [
     ],
     status: "In Development",
     steamUrl: "#", // Replace with your Steam store URL
+    trailerUrl: "", // Paste your YouTube embed URL here, e.g. "https://www.youtube.com/embed/YOUR_VIDEO_ID"
   },
 ];
 
