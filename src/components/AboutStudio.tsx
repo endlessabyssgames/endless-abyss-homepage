@@ -5,15 +5,15 @@ const AboutStudio = () => {
         <p className="text-xs font-display tracking-[0.2em] text-foreground/40 uppercase mb-4">
           The Studio
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold font-display mb-8 text-foreground uppercase tracking-tight">
-          About Endless Abyss
+        <h2 className="text-3xl md:text-4xl font-bold font-display mb-8 text-foreground uppercase tracking-tight">ABOUT ENDLESS ABYSS GAMES
+
         </h2>
-        <p className="text-foreground/50 text-sm md:text-base leading-relaxed font-body mb-16 max-w-2xl">
-          Endless Abyss Games is an indie studio passionate about building 
-          atmospheric, story-driven experiences. We believe games should pull 
-          you in and never let go — every shadow hides a secret, every light 
-          tells a story. We're a small team with big ambitions, crafting worlds 
-          that linger long after you put down the controller.
+        <p className="text-foreground/50 text-sm md:text-base leading-relaxed font-body mb-16 max-w-2xl">Endless Abyss Games is an independent studio dedicated to crafting deeply immersive experiences. We are committed to deliver the best possible experience in every project we create.   
+
+
+
+
+
         </p>
         <div className="flex gap-16 text-foreground/40">
           <div>
