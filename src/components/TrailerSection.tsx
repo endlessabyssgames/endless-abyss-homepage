@@ -1,24 +1,50 @@
+import { useEffect, useRef, useState } from "react";
 import { games } from "@/data/games";
 
 const TrailerSection = () => {
   const game = games[0];
   const trailerUrl = game?.trailerUrl;
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current || !trailerUrl) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.3 }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [trailerUrl]);
+
+  const autoplayUrl = trailerUrl && isVisible
+    ? `${trailerUrl}?autoplay=1&mute=1`
+    : trailerUrl || "";
 
   return (
-    <section id="trailer" className="py-32 px-8 md:px-12">
+    <section id="trailer" className="py-32 px-8 md:px-12" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground uppercase tracking-tight mb-12">
           Trailer
         </h2>
         <div className="aspect-video overflow-hidden bg-card border border-border">
-          {trailerUrl ? (
+          {trailerUrl && isVisible ? (
             <iframe
               className="w-full h-full"
-              src={trailerUrl}
+              src={autoplayUrl}
               title="Game Trailer"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+          ) : trailerUrl ? (
+            <div className="w-full h-full flex items-center justify-center text-foreground/20">
+              <div className="text-center">
+                <svg className="w-16 h-16 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <p className="font-display text-xs tracking-[0.2em] uppercase">Loading...</p>
+              </div>
+            </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center text-foreground/20">
               <div className="text-center">
