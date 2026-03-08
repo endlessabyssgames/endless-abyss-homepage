@@ -132,7 +132,7 @@ const PressKit = () => {
             ].map(({ label, src }) => (
               <div
                 key={label}
-                className="aspect-square bg-card border border-border flex flex-col items-center justify-center p-6 relative">
+                className="aspect-square flex flex-col items-center justify-center p-6 relative">
                 <img src={src} alt={label} className="w-full h-full object-contain p-4" />
                 <p className="absolute bottom-3 text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
                   {label}
