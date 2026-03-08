@@ -162,17 +162,6 @@ const PressKit = () => {
         </div>
       </section>
 
-      {/* Key Art */}
-      <section className="py-16 px-8 md:px-12 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-lg font-display font-bold text-foreground uppercase tracking-tight mb-8">
-            Key Art
-          </h2>
-          <div className="overflow-hidden border border-border">
-            <img src={game.coverImage} alt={`${game.title} key art`} className="w-full h-auto object-cover aspect-video" />
-          </div>
-        </div>
-      </section>
 
       <div className="py-16" />
       <Footer />
