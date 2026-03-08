@@ -48,7 +48,7 @@ export const games: GameData[] = [
     status: "In Development",
     steamUrl: "https://store.steampowered.com/app/4329160/Critical_Descent/",
     trailerUrl: "https://www.youtube.com/embed/dlTB8hDrDvg",
-    demoUrl: "", // Paste your Steam demo URL here
+    demoUrl: "https://store.steampowered.com/app/4476650/Critical_Descent_Demo/",
     demoReleased: false, // ← Change to true when the demo is live
   },
 ];
