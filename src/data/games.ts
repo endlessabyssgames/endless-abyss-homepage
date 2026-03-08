@@ -17,15 +17,15 @@ export interface GameData {
 
 export const games: GameData[] = [
   {
-    slug: "echoes-of-the-abyss",
-    title: "Echoes of the Abyss",
+    slug: "critical-descent",
+    title: "Critical Descent",
     tagline: "Coming Soon",
     description:
-      "Descend into a shattered world where ancient magic pulses beneath crumbling ruins. As the last Voidwalker, unravel the mystery of the Endless Abyss — a living chasm that consumes reality itself.",
+      "Master the hardcore, Starship-style catch maneuver in Critical Descent. Pilot massive boosters and agile upper stages across 50+ handcrafted levels on Earth, the Moon, and Mars. Featuring global leaderboards, multiple difficulties, and a realistic physics system, for the ultimate landing experience.",
     longDescription: [
-      "Descend into a shattered world where ancient magic pulses beneath crumbling ruins. As the last Voidwalker, unravel the mystery of the Endless Abyss — a living chasm that consumes reality itself.",
+      "Master the hardcore, Starship-style catch maneuver in Critical Descent. Pilot massive boosters and agile upper stages across 50+ handcrafted levels on Earth, the Moon, and Mars. Featuring global leaderboards, multiple difficulties, and a realistic physics system, for the ultimate landing experience.",
       "Battle eldritch creatures, forge alliances with forgotten gods, and decide the fate of a world teetering on oblivion. Every choice pulls you deeper. Every shadow hides a truth you may not be ready to face.",
-      "Featuring a hand-crafted dark fantasy world, punishing but fair combat, and a branching narrative shaped by your decisions, Echoes of the Abyss is a journey into the unknown — and there's no coming back.",
+      "Featuring a hand-crafted dark fantasy world, punishing but fair combat, and a branching narrative shaped by your decisions, Critical Descent is a journey into the unknown — and there's no coming back.",
     ],
     coverImage: heroBg,
     screenshots: [

@@ -32,7 +32,7 @@ const Navbar = () => {
       </Link>
 
       <div className="hidden md:flex items-center gap-8">
-        <Link to="/games/echoes-of-the-abyss" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
+        <Link to="/games/critical-descent" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
           Games
         </Link>
         <a
