@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useCallback } from "react";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleAboutClick = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      if (location.pathname === "/") {
+        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    },
+    [location.pathname, navigate]
+  );
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 py-5 bg-gradient-to-b from-background to-transparent">
       <Link to="/" className="flex items-center gap-3">
@@ -16,7 +35,11 @@ const Navbar = () => {
         <Link to="/games/echoes-of-the-abyss" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
           Games
         </Link>
-        <a href="/#about" className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase">
+        <a
+          href="/#about"
+          onClick={handleAboutClick}
+          className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase"
+        >
           About
         </a>
       </div>
