@@ -37,7 +37,7 @@ const Navbar = () => {
         <a
           href="/#about"
           onClick={handleAboutClick}
-          className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors uppercase"
+          className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase"
         >
           About
         </a>
