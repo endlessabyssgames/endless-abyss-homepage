@@ -17,9 +17,12 @@ const TrailerSection = () => {
     return () => observer.disconnect();
   }, [trailerUrl]);
 
-  const autoplayUrl = trailerUrl && isVisible
+  // Don't render the section at all if there's no trailer
+  if (!trailerUrl) return null;
+
+  const autoplayUrl = isVisible
     ? `${trailerUrl}?autoplay=1&mute=1&vq=auto`
-    : trailerUrl || "";
+    : trailerUrl;
 
   return (
     <section id="trailer" className="section-padding" ref={sectionRef}>
@@ -28,7 +31,7 @@ const TrailerSection = () => {
           Trailer
         </h2>
         <div className="aspect-video overflow-hidden bg-card border border-border transition-all duration-300 hover:border-foreground/20">
-          {trailerUrl && isVisible ? (
+          {isVisible ? (
             <iframe
               className="w-full h-full"
               src={autoplayUrl}
@@ -36,23 +39,11 @@ const TrailerSection = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-          ) : trailerUrl ? (
-            <div className="w-full h-full flex items-center justify-center text-foreground/20">
-              <div className="text-center">
-                <svg className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-3 sm:mb-4 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <p className="font-display text-[10px] sm:text-xs tracking-[0.2em] uppercase">Loading...</p>
-              </div>
-            </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center text-foreground/20">
-              <div className="text-center">
-                <svg className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-3 sm:mb-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <p className="font-display text-[10px] sm:text-xs tracking-[0.2em] uppercase">Trailer Coming Soon</p>
-              </div>
+              <svg className="w-12 sm:w-16 h-12 sm:h-16 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
             </div>
           )}
         </div>
