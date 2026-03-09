@@ -19,6 +19,7 @@ export interface GameData {
   trailerUrl?: string;
   demoUrl?: string;
   demoReleased: boolean; // ← Toggle this to true when you release the demo
+  soundtrackPlaylistUrl?: string; // YouTube playlist embed URL
 }
 
 export const games: GameData[] = [
