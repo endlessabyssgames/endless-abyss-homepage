@@ -69,7 +69,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border px-6 py-6 flex flex-col gap-5">
           <Link
-            to="/games/critical-descent"
+            to="/games"
             onClick={() => setMenuOpen(false)}
             className="text-xs font-display tracking-[0.15em] text-foreground/70 hover:text-foreground transition-colors duration-300 uppercase"
           >
