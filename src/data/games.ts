@@ -51,7 +51,7 @@ export const games: GameData[] = [
       { label: "Status", value: "In Development" },
       { label: "Release", value: "2026" },
     ],
-    status: "Released",
+    status: "In Development",
     steamUrl: "https://store.steampowered.com/app/4329160/Critical_Descent/",
     trailerUrl: "https://www.youtube-nocookie.com/embed/dlTB8hDrDvg",
     demoUrl: "https://store.steampowered.com/app/4476650/Critical_Descent_Demo/",
