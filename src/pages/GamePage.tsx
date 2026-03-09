@@ -102,13 +102,13 @@ const GamePage = () => {
       </section>
 
       {/* Trailer */}
-      <section className="px-8 md:px-12 pb-24">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
-            Trailer
-          </h2>
-          <div className="aspect-video overflow-hidden bg-card border border-border">
-            {game.trailerUrl ? (
+      {game.trailerUrl && (
+        <section className="px-8 md:px-12 pb-24">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
+              Trailer
+            </h2>
+            <div className="aspect-video overflow-hidden bg-card border border-border">
               <iframe
                 className="w-full h-full"
                 src={`${game.trailerUrl}?autoplay=1&mute=1&vq=auto`}
@@ -116,54 +116,33 @@ const GamePage = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-foreground/20">
-                <div className="text-center">
-                  <svg className="w-12 h-12 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  <p className="font-display text-xs tracking-[0.2em] uppercase">Trailer Coming Soon</p>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Soundtrack */}
-      {game.soundtrackPlaylistUrl !== undefined && (
+      {game.soundtrackPlaylistUrl && (
         <section className="px-8 md:px-12 pb-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
               Soundtrack
             </h2>
-            {game.soundtrackPlaylistUrl ? (
-              <div className="aspect-video max-w-2xl overflow-hidden bg-card border border-border">
-                <iframe
-                  className="w-full h-full"
-                  src={game.soundtrackPlaylistUrl}
-                  title="Game Soundtrack"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            ) : (
-              <div className="max-w-2xl aspect-video border border-border flex items-center justify-center text-foreground/20">
-                <div className="text-center">
-                  <svg className="w-12 h-12 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-                  </svg>
-                  <p className="font-display text-xs tracking-[0.2em] uppercase">Soundtrack Coming Soon</p>
-                </div>
-              </div>
-            )}
+            <div className="aspect-video max-w-2xl overflow-hidden bg-card border border-border">
+              <iframe
+                className="w-full h-full"
+                src={game.soundtrackPlaylistUrl}
+                title="Game Soundtrack"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </section>
       )}
 
-
       {/* Demo */}
-      {(game.demoUrl || game.demoUrl === "") && (
+      {game.demoUrl && (
         <section className="px-8 md:px-12 pb-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
@@ -173,7 +152,7 @@ const GamePage = () => {
               Experience {game.title} for yourself. Download the free demo and master the art of precision landing.
             </p>
             <a
-              href={game.demoReleased && game.demoUrl ? game.demoUrl : "#"}
+              href={game.demoReleased ? game.demoUrl : "#"}
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-3 px-8 py-4 text-xs font-display tracking-[0.15em] uppercase transition-all duration-300 ${
@@ -192,37 +171,39 @@ const GamePage = () => {
       )}
 
       {/* Screenshots */}
-      <section className="px-8 md:px-12 pb-24">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
-            Screenshots
-          </h2>
-          <div className="space-y-3">
-            <div className="overflow-hidden border border-border">
-              <img
-                src={game.screenshots[activeScreenshot].src}
-                alt={game.screenshots[activeScreenshot].alt}
-                className="w-full h-auto object-cover aspect-video"
-              />
-            </div>
-            <div className="grid grid-cols-5 gap-3">
-              {game.screenshots.map((shot, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveScreenshot(i)}
-                  className={`overflow-hidden border transition-all duration-300 ${
-                    i === activeScreenshot
-                      ? "border-foreground/40"
-                      : "border-border opacity-40 hover:opacity-70"
-                  }`}
-                >
-                  <img src={shot.src} alt={shot.alt} className="w-full h-auto object-cover aspect-video" />
-                </button>
-              ))}
+      {game.screenshots.length > 0 && (
+        <section className="px-8 md:px-12 pb-24">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
+              Screenshots
+            </h2>
+            <div className="space-y-3">
+              <div className="overflow-hidden border border-border">
+                <img
+                  src={game.screenshots[activeScreenshot].src}
+                  alt={game.screenshots[activeScreenshot].alt}
+                  className="w-full h-auto object-cover aspect-video"
+                />
+              </div>
+              <div className="grid grid-cols-5 gap-3">
+                {game.screenshots.map((shot, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveScreenshot(i)}
+                    className={`overflow-hidden border transition-all duration-300 ${
+                      i === activeScreenshot
+                        ? "border-foreground/40"
+                        : "border-border opacity-40 hover:opacity-70"
+                    }`}
+                  >
+                    <img src={shot.src} alt={shot.alt} className="w-full h-auto object-cover aspect-video" />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Press Kit Link */}
       <section className="px-8 md:px-12 pb-32 border-t border-border pt-16">
