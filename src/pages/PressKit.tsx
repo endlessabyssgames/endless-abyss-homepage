@@ -26,6 +26,16 @@ const PressKit = () => {
     );
   }
 
+  const hasDetails = game.details.length > 0;
+  const hasDescription = game.description.length > 0;
+  const hasScreenshots = game.screenshots.length > 0;
+
+  // Build logos array dynamically - only include logos that exist
+  const logos = [
+    { label: "Studio Logo", src: studioLogo },
+    { label: `${game.title} Logo`, src: criticalDescentLogo },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -88,73 +98,80 @@ const PressKit = () => {
         </div>
       </section>
 
-      {/* Game Info */}
-      <section className="section-padding border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-tight mb-4 sm:mb-6">
-            {game.title} — Game Fact Sheet
-          </h2>
-          <div className="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
-            <dl className="space-y-3 sm:space-y-4 text-sm font-body">
-              {game.details.map(({ label, value }) => (
-                <div key={label} className="flex justify-between border-b border-border pb-2 sm:pb-3">
-                  <dt className="text-foreground/40">{label}</dt>
-                  <dd className="text-foreground/70">{value}</dd>
+      {/* Game Info - only if there are details or a description */}
+      {(hasDetails || hasDescription) && (
+        <section className="section-padding border-t border-border">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-tight mb-4 sm:mb-6">
+              {game.title} — Game Fact Sheet
+            </h2>
+            <div className="grid md:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
+              {hasDetails && (
+                <dl className="space-y-3 sm:space-y-4 text-sm font-body">
+                  {game.details.map(({ label, value }) => (
+                    <div key={label} className="flex justify-between border-b border-border pb-2 sm:pb-3">
+                      <dt className="text-foreground/40">{label}</dt>
+                      <dd className="text-foreground/70">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              {hasDescription && (
+                <div>
+                  <h3 className="text-sm font-display font-bold text-foreground uppercase tracking-tight mb-3 sm:mb-4">
+                    Synopsis
+                  </h3>
+                  <p className="text-foreground/50 text-sm font-body leading-relaxed">
+                    {game.description}
+                  </p>
                 </div>
-              ))}
-            </dl>
-            <div>
-              <h3 className="text-sm font-display font-bold text-foreground uppercase tracking-tight mb-3 sm:mb-4">
-                Synopsis
-              </h3>
-              <p className="text-foreground/50 text-sm font-body leading-relaxed">
-                {game.description}
-              </p>
+              )}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Logos */}
-      <section className="section-padding border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
-            Logos &amp; Branding
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-            {[
-              { label: "Studio Logo", src: studioLogo },
-              { label: "Critical Descent's Logo", src: criticalDescentLogo },
-            ].map(({ label, src }) => (
-              <div
-                key={label}
-                className="aspect-square flex flex-col items-center justify-center p-4 sm:p-6 relative transition-all duration-300 hover:bg-foreground/5"
-              >
-                <img src={src} alt={label} className="w-full h-full object-contain p-2 sm:p-4" />
-                <p className="absolute bottom-2 sm:bottom-3 text-[9px] sm:text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
-                  {label}
-                </p>
-              </div>
-            ))}
+      {logos.length > 0 && (
+        <section className="section-padding border-t border-border">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
+              Logos &amp; Branding
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+              {logos.map(({ label, src }) => (
+                <div
+                  key={label}
+                  className="aspect-square flex flex-col items-center justify-center p-4 sm:p-6 relative transition-all duration-300 hover:bg-foreground/5"
+                >
+                  <img src={src} alt={label} className="w-full h-full object-contain p-2 sm:p-4" />
+                  <p className="absolute bottom-2 sm:bottom-3 text-[9px] sm:text-[10px] font-display tracking-[0.15em] text-foreground/30 uppercase text-center">
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Screenshots */}
-      <section className="section-padding border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
-            Screenshots
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-            {game.screenshots.map((shot, i) => (
-              <div key={i} className="hover-zoom border border-border transition-all duration-300 hover:border-foreground/20">
-                <img src={shot.src} alt={shot.alt} className="w-full h-auto object-cover aspect-video" />
-              </div>
-            ))}
+      {/* Screenshots - only if there are any */}
+      {hasScreenshots && (
+        <section className="section-padding border-t border-border">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
+              Screenshots
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+              {game.screenshots.map((shot, i) => (
+                <div key={i} className="hover-zoom border border-border transition-all duration-300 hover:border-foreground/20">
+                  <img src={shot.src} alt={shot.alt} className="w-full h-auto object-cover aspect-video" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <div className="py-12 sm:py-16" />
       <Footer />
