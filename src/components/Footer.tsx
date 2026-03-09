@@ -24,12 +24,12 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="py-8 px-8 md:px-12 border-t border-border">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="font-display font-bold text-xs tracking-[0.2em] text-foreground/40 uppercase">
+    <footer className="py-6 sm:py-8 section-padding-x border-t border-border">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+        <span className="font-display font-bold text-[10px] sm:text-xs tracking-[0.2em] text-foreground/40 uppercase">
           Endless Abyss Games
         </span>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 sm:gap-6">
           {socialLinks.map((link) => (
             <a
               key={link.label}
@@ -37,7 +37,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
-              className="text-foreground/30 hover:text-foreground transition-colors duration-300"
+              className="text-foreground/30 hover:text-foreground transition-all duration-300 hover:scale-110"
             >
               {link.icon}
             </a>
@@ -45,7 +45,7 @@ const Footer = () => {
           <Link
             to="/contact"
             aria-label="Contact"
-            className="text-foreground/30 hover:text-foreground transition-colors duration-300"
+            className="text-foreground/30 hover:text-foreground transition-all duration-300 hover:scale-110"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="2" />
@@ -53,7 +53,7 @@ const Footer = () => {
             </svg>
           </Link>
         </div>
-        <p className="text-xs text-foreground/30">
+        <p className="text-[10px] sm:text-xs text-foreground/30">
           © {new Date().getFullYear()} Endless Abyss Games. All rights reserved.
         </p>
       </div>

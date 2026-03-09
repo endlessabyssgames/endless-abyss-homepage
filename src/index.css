@@ -39,6 +39,20 @@
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
 
+    /* Consistent spacing scale */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+    --spacing-xl: 3rem;     /* 48px */
+    --spacing-2xl: 4rem;    /* 64px */
+    --spacing-3xl: 6rem;    /* 96px */
+    --spacing-4xl: 8rem;    /* 128px */
+
+    /* Section padding */
+    --section-padding-x: 1.5rem;
+    --section-padding-y: 4rem;
+
     --sidebar-background: 0 0% 3%;
     --sidebar-foreground: 0 0% 80%;
     --sidebar-primary: 0 0% 100%;
@@ -48,11 +62,42 @@
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 0 0% 100%;
   }
+
+  @media (min-width: 640px) {
+    :root {
+      --section-padding-x: 2rem;
+      --section-padding-y: 5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --section-padding-x: 3rem;
+      --section-padding-y: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --section-padding-x: 4rem;
+      --section-padding-y: 8rem;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    :root {
+      --section-padding-x: 6rem;
+    }
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -65,6 +110,74 @@
   }
 }
 
+@layer components {
+  /* Standardized section padding */
+  .section-padding {
+    padding-left: var(--section-padding-x);
+    padding-right: var(--section-padding-x);
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+  }
+
+  .section-padding-x {
+    padding-left: var(--section-padding-x);
+    padding-right: var(--section-padding-x);
+  }
+
+  .section-padding-y {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+  }
+
+  /* Button base styles */
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-3 font-display tracking-[0.15em] uppercase transition-all duration-300 ease-out;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply btn-base px-6 py-3 text-xs bg-foreground text-background;
+    @apply hover:bg-foreground/85 hover:shadow-lg hover:shadow-foreground/10;
+  }
+
+  .btn-secondary {
+    @apply btn-base px-6 py-3 text-xs border border-foreground/30 text-foreground;
+    @apply hover:bg-foreground hover:text-background hover:border-foreground;
+  }
+
+  .btn-ghost {
+    @apply btn-base px-4 py-2 text-xs text-foreground/50;
+    @apply hover:text-foreground hover:bg-foreground/5;
+  }
+
+  /* Loading spinner for buttons */
+  .btn-loading {
+    @apply relative text-transparent pointer-events-none;
+  }
+
+  .btn-loading::after {
+    content: '';
+    @apply absolute inset-0 m-auto w-4 h-4 border-2 border-current border-t-transparent rounded-full;
+    animation: spin 0.6s linear infinite;
+  }
+
+  /* Link hover effect */
+  .link-hover {
+    @apply relative;
+  }
+
+  .link-hover::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-current origin-right scale-x-0 transition-transform duration-300 ease-out;
+  }
+
+  .link-hover:hover::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
 @layer utilities {
   .animate-float {
     animation: float 6s ease-in-out infinite;
@@ -73,5 +186,31 @@
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Smooth transitions for interactive elements */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .transition-fast {
+    @apply transition-all duration-150 ease-out;
+  }
+
+  /* Image hover zoom */
+  .hover-zoom {
+    @apply overflow-hidden;
+  }
+
+  .hover-zoom img {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .hover-zoom:hover img {
+    @apply scale-[1.03];
   }
 }

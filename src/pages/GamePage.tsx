@@ -15,9 +15,9 @@ const GamePage = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <Navbar />
-        <div className="text-center">
-          <h1 className="text-4xl font-display font-bold text-foreground mb-4">Game Not Found</h1>
-          <Link to="/" className="text-xs font-display tracking-[0.15em] text-foreground/50 hover:text-foreground uppercase">
+        <div className="text-center section-padding-x">
+          <h1 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">Game Not Found</h1>
+          <Link to="/" className="text-xs font-display tracking-[0.15em] text-foreground/50 hover:text-foreground uppercase transition-colors duration-300">
             Back to Home
           </Link>
         </div>
@@ -30,18 +30,18 @@ const GamePage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-[70vh] flex items-end overflow-hidden">
+      <section className="relative h-[60vh] sm:h-[70vh] flex items-end overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
           style={{ backgroundImage: `url(${game.coverImage})` }}
         />
         <div className="absolute inset-0 bg-background/60" />
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
-        <div className="relative z-10 px-8 md:px-12 pb-16 max-w-4xl">
-          <p className="text-xs font-display tracking-[0.2em] text-foreground/40 uppercase mb-3">
+        <div className="relative z-10 section-padding-x pb-12 sm:pb-16 max-w-4xl">
+          <p className="text-[10px] sm:text-xs font-display tracking-[0.2em] text-foreground/40 uppercase mb-2 sm:mb-3">
             {game.tagline}
           </p>
-          <h1 className="text-4xl md:text-6xl font-bold font-display text-foreground uppercase tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-display text-foreground uppercase tracking-tight mb-4 sm:mb-6">
             {game.title}
           </h1>
           {game.steamUrl && (
@@ -49,7 +49,7 @@ const GamePage = () => {
               href={game.steamUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-foreground text-background text-xs font-display tracking-[0.15em] uppercase hover:bg-foreground/80 transition-all duration-300"
+              className="btn-primary"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.008l2.861-4.142V8.91a4.528 4.528 0 0 1 4.524-4.524c2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396a3.404 3.404 0 0 1-3.362-2.898L.309 15.245A11.985 11.985 0 0 0 11.979 24c6.627 0 12-5.373 12-12s-5.372-12-12-12z"/>
@@ -61,19 +61,19 @@ const GamePage = () => {
       </section>
 
       {/* Details */}
-      <section className="py-24 px-8 md:px-12">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16">
+      <section className="section-padding">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 sm:gap-12 md:gap-16">
           <div className="md:col-span-2">
-            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-6">
+            <h2 className="text-lg sm:text-xl font-display font-bold text-foreground uppercase tracking-tight mb-4 sm:mb-6">
               About the Game
             </h2>
-            <div className="space-y-6 text-sm leading-relaxed font-body">
+            <div className="space-y-4 sm:space-y-6 text-sm leading-relaxed font-body">
               {game.longDescription.map((p, i) => {
                 const parts = p.split("\n\n");
                 if (parts.length > 1) {
                   return (
                     <div key={i}>
-                      <h3 className="text-foreground font-display font-bold uppercase tracking-tight text-base mb-3">
+                      <h3 className="text-foreground font-display font-bold uppercase tracking-tight text-sm sm:text-base mb-2 sm:mb-3">
                         {parts[0]}
                       </h3>
                       <p className="text-foreground/50">{parts[1]}</p>
@@ -86,12 +86,12 @@ const GamePage = () => {
           </div>
 
           <div>
-            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-6">
+            <h2 className="text-lg sm:text-xl font-display font-bold text-foreground uppercase tracking-tight mb-4 sm:mb-6">
               Details
             </h2>
-            <dl className="space-y-4 text-sm font-body">
+            <dl className="space-y-3 sm:space-y-4 text-sm font-body">
               {game.details.map(({ label, value }) => (
-                <div key={label} className="flex justify-between border-b border-border pb-3">
+                <div key={label} className="flex justify-between border-b border-border pb-2 sm:pb-3">
                   <dt className="text-foreground/40">{label}</dt>
                   <dd className="text-foreground/70">{value}</dd>
                 </div>
@@ -103,12 +103,12 @@ const GamePage = () => {
 
       {/* Trailer */}
       {game.trailerUrl && (
-        <section className="px-8 md:px-12 pb-24">
+        <section className="section-padding-x pb-16 sm:pb-20 md:pb-24">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
+            <h2 className="text-lg sm:text-xl font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
               Trailer
             </h2>
-            <div className="aspect-video overflow-hidden bg-card border border-border">
+            <div className="aspect-video overflow-hidden bg-card border border-border transition-all duration-300 hover:border-foreground/20">
               <iframe
                 className="w-full h-full"
                 src={`${game.trailerUrl}?autoplay=1&mute=1&vq=auto`}
@@ -123,12 +123,12 @@ const GamePage = () => {
 
       {/* Soundtrack */}
       {game.soundtrackPlaylistUrl && (
-        <section className="px-8 md:px-12 pb-24">
+        <section className="section-padding-x pb-16 sm:pb-20 md:pb-24">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
+            <h2 className="text-lg sm:text-xl font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
               Soundtrack
             </h2>
-            <div className="aspect-video max-w-2xl overflow-hidden bg-card border border-border">
+            <div className="aspect-video max-w-2xl overflow-hidden bg-card border border-border transition-all duration-300 hover:border-foreground/20">
               <iframe
                 className="w-full h-full"
                 src={game.soundtrackPlaylistUrl}
@@ -143,25 +143,25 @@ const GamePage = () => {
 
       {/* Demo */}
       {game.demoUrl && (
-        <section className="px-8 md:px-12 pb-24">
+        <section className="section-padding-x pb-16 sm:pb-20 md:pb-24">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
+            <h2 className="text-lg sm:text-xl font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
               Play the Demo
             </h2>
-            <p className="text-foreground/50 text-sm font-body leading-relaxed mb-8 max-w-2xl">
+            <p className="text-foreground/50 text-sm font-body leading-relaxed mb-6 sm:mb-8 max-w-2xl">
               Experience {game.title} for yourself. Download the free demo and master the art of precision landing.
             </p>
             <a
               href={game.demoReleased ? game.demoUrl : "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-3 px-8 py-4 text-xs font-display tracking-[0.15em] uppercase transition-all duration-300 ${
+              className={`inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-[10px] sm:text-xs font-display tracking-[0.15em] uppercase transition-all duration-300 ${
                 game.demoReleased
-                  ? "bg-foreground text-background hover:bg-foreground/80"
+                  ? "btn-primary"
                   : "border border-foreground/20 text-foreground/30 cursor-not-allowed pointer-events-none"
               }`}
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.064 0 .128.003.19.008l2.861-4.142V8.91a4.528 4.528 0 0 1 4.524-4.524c2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396a3.404 3.404 0 0 1-3.362-2.898L.309 15.245A11.985 11.985 0 0 0 11.979 24c6.627 0 12-5.373 12-12s-5.372-12-12-12z"/>
               </svg>
               {game.demoReleased ? "Download Demo on Steam" : "Demo Coming Soon"}
@@ -172,20 +172,20 @@ const GamePage = () => {
 
       {/* Screenshots */}
       {game.screenshots.length > 0 && (
-        <section className="px-8 md:px-12 pb-24">
+        <section className="section-padding-x pb-16 sm:pb-20 md:pb-24">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-xl font-display font-bold text-foreground uppercase tracking-tight mb-8">
+            <h2 className="text-lg sm:text-xl font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
               Screenshots
             </h2>
-            <div className="space-y-3">
-              <div className="overflow-hidden border border-border">
+            <div className="space-y-2 sm:space-y-3">
+              <div className="overflow-hidden border border-border transition-all duration-300 hover:border-foreground/20">
                 <img
                   src={game.screenshots[activeScreenshot].src}
                   alt={game.screenshots[activeScreenshot].alt}
-                  className="w-full h-auto object-cover aspect-video"
+                  className="w-full h-auto object-cover aspect-video transition-opacity duration-300"
                 />
               </div>
-              <div className="grid grid-cols-5 gap-3">
+              <div className="grid grid-cols-5 gap-1.5 sm:gap-3">
                 {game.screenshots.map((shot, i) => (
                   <button
                     key={i}
@@ -206,14 +206,14 @@ const GamePage = () => {
       )}
 
       {/* Press Kit Link */}
-      <section className="px-8 md:px-12 pb-32 border-t border-border pt-16">
+      <section className="section-padding-x pb-20 sm:pb-24 md:pb-32 border-t border-border pt-12 sm:pt-16">
         <div className="max-w-6xl mx-auto">
           <Link
             to={`/games/${game.slug}/press`}
-            className="inline-flex items-center gap-3 px-6 py-3 border border-foreground/30 text-foreground text-xs font-display tracking-[0.15em] uppercase hover:bg-foreground hover:text-background transition-all duration-300"
+            className="btn-secondary group"
           >
             Press Kit
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform duration-300 group-hover:translate-x-1">
               <path d="M5 12h14m-7-7l7 7-7 7" />
             </svg>
           </Link>
