@@ -4,6 +4,7 @@ import screenshot3 from "@/assets/screenshot-3.jpg";
 import screenshot4 from "@/assets/screenshot-4.jpg";
 import screenshot5 from "@/assets/screenshot-5.jpg";
 import criticalDescentKeyart from "@/assets/critical-descent-keyart.png";
+import criticalDescentKeyartPress from "@/assets/critical-descent-keyart-press.png";
 
 export interface GameData {
   slug: string;
@@ -20,6 +21,7 @@ export interface GameData {
   demoUrl?: string;
   demoReleased: boolean; // ← Toggle this to true when you release the demo
   soundtrackPlaylistUrl?: string; // YouTube playlist embed URL
+  keyArt?: string; // Key art image for press kit
 }
 
 export const games: GameData[] = [
@@ -57,6 +59,7 @@ export const games: GameData[] = [
     demoUrl: "https://store.steampowered.com/app/4476650/Critical_Descent_Demo/",
     demoReleased: false, // ← Change to true when the demo is live
     soundtrackPlaylistUrl: "https://www.youtube-nocookie.com/embed/videoseries?list=PLUQsbQvkl8dFERXjL9BKe-I7ecgbHfXvr",
+    keyArt: criticalDescentKeyartPress,
   },
 ];
 
