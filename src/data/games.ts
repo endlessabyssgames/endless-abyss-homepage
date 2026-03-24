@@ -4,6 +4,7 @@ import screenshot3 from "@/assets/screenshot-3.jpg";
 import screenshot4 from "@/assets/screenshot-4.jpg";
 import screenshot5 from "@/assets/screenshot-5.jpg";
 import criticalDescentKeyart from "@/assets/critical-descent-keyart.png";
+import criticalDescentKeyartPress from "@/assets/critical-descent-keyart-press.png";
 
 export interface GameData {
   slug: string;
