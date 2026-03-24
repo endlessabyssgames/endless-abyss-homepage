@@ -59,6 +59,7 @@ export const games: GameData[] = [
     demoUrl: "https://store.steampowered.com/app/4476650/Critical_Descent_Demo/",
     demoReleased: false, // ← Change to true when the demo is live
     soundtrackPlaylistUrl: "https://www.youtube-nocookie.com/embed/videoseries?list=PLUQsbQvkl8dFERXjL9BKe-I7ecgbHfXvr",
+    keyArt: criticalDescentKeyartPress,
   },
 ];
 
