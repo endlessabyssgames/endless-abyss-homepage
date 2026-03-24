@@ -131,15 +131,20 @@ const PressKit = () => {
         </section>
       )}
 
-      {/* Key Art - only if provided */}
+      {/* Key Art */}
       {game.keyArt && (
         <section className="section-padding border-t border-border">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-tight mb-6 sm:mb-8">
               Key Art
             </h2>
-            <div className="border border-border transition-all duration-300 hover:border-foreground/20">
-              <img src={game.keyArt} alt={`${game.title} Key Art`} className="w-full h-auto object-cover" />
+            <div className="border border-border rounded-sm overflow-hidden transition-all duration-300 hover:border-foreground/20">
+              <img
+                src={game.keyArt}
+                alt={`${game.title} Key Art`}
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
