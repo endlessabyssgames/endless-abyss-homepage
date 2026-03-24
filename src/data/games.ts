@@ -21,6 +21,7 @@ export interface GameData {
   demoUrl?: string;
   demoReleased: boolean; // ← Toggle this to true when you release the demo
   soundtrackPlaylistUrl?: string; // YouTube playlist embed URL
+  keyArt?: string; // Key art image for press kit
 }
 
 export const games: GameData[] = [
