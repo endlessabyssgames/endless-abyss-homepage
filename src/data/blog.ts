@@ -1,3 +1,5 @@
+import demoAnnounceImg from "@/assets/blog-demo-announce.png";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -32,6 +34,8 @@ export const blogPosts: BlogPost[] = [
       "Critical Descent's Demo is releasing on April 27th! Fly 10 intense missions on 2 different difficulties. Masterfully pilot the rocket for a catch in the tower's massive arms. Wishlist the game now to be notified when the demo releases!",
     tags: ["announcement", "demo"],
     content: `
+![Critical Descent demo releasing April 27](${demoAnnounceImg})
+
 Critical Descent's Demo is releasing on April 27th! Fly 10 intense missions on 2 different difficulties. Masterfully pilot the rocket for a catch in the tower's massive arms. [Wishlist the game now](https://store.steampowered.com/app/4329160/Critical_Descent/) to be notified when the demo releases!
 
 Master the hardcore, Starship-style catch maneuver in the Critical Descent demo. Pilot massive boosters and agile upper stages across many levels. Featuring multiple difficulties, and a realistic physics system for the ultimate landing experience.
@@ -40,11 +44,7 @@ Critical Descent is a game about mastery, repetition, and the perfect execution 
 
 Many different levels await in this demo of Critical Descent! Fly and master incredible maneuvers like the belly-flop, and catch the massive rocket in the tower's waiting arms.
 
-## Beat Your Best
-
 Compete against yourself for the best time. Race your own best attempt as a ghost to defeat it and get a new record.
-
-## Play Anywhere
 
 Play on your Steam Deck or your PC, with full controller and keyboard support, as well as adaptive UI and text scaling, compatible with all aspect ratios. The Critical Descent demo is optimized for all devices, from the handheld Steam Deck to ultrawide monitors.
     `,

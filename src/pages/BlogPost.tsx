@@ -110,6 +110,14 @@ const BlogPost = () => {
                 </a>
               ),
               hr: () => <hr className="border-border my-8 sm:my-10" />,
+              img: ({ src, alt }) => (
+                <img
+                  src={src}
+                  alt={alt}
+                  loading="lazy"
+                  className="w-full h-auto border border-border my-6 sm:my-8"
+                />
+              ),
               blockquote: ({ children }) => (
                 <blockquote className="border-l-2 border-foreground/20 pl-4 sm:pl-5 my-5 sm:my-6 italic text-foreground/40">
                   {children}
