@@ -27,6 +27,17 @@ export interface BlogPost {
  */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "critical-descent-demo-v3-update",
+    title: "Critical Descent Demo Update — Celebrating Starship V3",
+    date: "2026-05-23",
+    excerpt:
+      "Critical Descent's demo is updating to celebrate the 12th flight of SpaceX Starship and the debut of version 3. Explore remastered levels and a visual overhaul inspired by the new Pad 2 design.",
+    tags: ["update", "demo"],
+    content: `
+Critical Descent's demo is updating to celebrate the 12th flight of SpaceX Starship and the debut of version 3. This update includes a remaster of many of the game's levels. It also includes a visual overhaul to the textures and decorations to reflect the new pad 2 design.
+    `,
+  },
+  {
     slug: "critical-descent-demo-april-27",
     title: "Critical Descent's Demo is releasing on April 27th!",
     date: "2026-04-27",
