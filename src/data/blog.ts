@@ -1,4 +1,5 @@
 import demoAnnounceImg from "@/assets/blog-demo-announce.png";
+import nextFestImg from "@/assets/blog-next-fest.png";
 
 export interface BlogPost {
   slug: string;
@@ -26,6 +27,27 @@ export interface BlogPost {
  * },
  */
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "critical-descent-steam-next-fest-june-2026",
+    title: "Critical Descent Joins Steam Next Fest — June 2026",
+    date: "2026-05-30",
+    excerpt:
+      "Critical Descent will be participating in the June 2026 Steam Next Fest! A massive demo update releases on June 15th with global leaderboards and an expanded ghost system.",
+    tags: ["announcement", "demo"],
+    content: `
+![Critical Descent at Steam Next Fest June 2026](${nextFestImg})
+
+Critical Descent will be participating in the June 2026 Steam Next Fest!
+
+On June 15th, a massive update to the demo will be releasing! Here's what it contains:
+
+**Global Leaderboards** — See where you fall compared to other players on our new leaderboards!
+
+**An Expansion to the ghost system!** You aren't limited to racing just your own time anymore. Race the ghost of anyone on the leaderboard in the new update! Find out how the number 1 player achieved their time by racing it in real time!
+
+[Wishlist Critical Descent](https://store.steampowered.com/app/4329160/Critical_Descent/) now and try to improve your piloting skills before the update releases!
+    `,
+  },
   {
     slug: "critical-descent-demo-v3-update",
     title: "Critical Descent Demo Update — Celebrating Starship V3",
