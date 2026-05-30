@@ -1,4 +1,5 @@
 import demoAnnounceImg from "@/assets/blog-demo-announce.png";
+import nextFestImg from "@/assets/blog-next-fest.png";
 
 export interface BlogPost {
   slug: string;
