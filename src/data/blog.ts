@@ -28,6 +28,30 @@ export interface BlogPost {
  */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "leaderboard-update-live-steam-next-fest",
+    title: "The Leaderboard Update is Live for Steam Next Fest!",
+    date: "2026-06-15",
+    excerpt:
+      "Critical Descent now features global leaderboards on every level, and the ability to race the runs of record-holders to see how they did it!",
+    coverImage: nextFestImg,
+    tags: ["update", "demo"],
+    content: `
+![Critical Descent at Steam Next Fest June 2026](${nextFestImg})
+
+Critical Descent now features global leaderboards on every level, and the ability to race the runs of record-holders to see how they did it!
+
+## Features
+
+**Global leaderboards on every level.**
+
+**Ghost racing for all leaderboard scores.**
+
+**Various minor bugfixes and improvements.**
+
+[Wishlist Critical Descent](https://store.steampowered.com/app/4329160/Critical_Descent/) [Play the demo](https://store.steampowered.com/app/4476650/Critical_Descent_Demo/)
+    `,
+  },
+  {
     slug: "critical-descent-steam-next-fest-june-2026",
     title: "Critical Descent Joins Steam Next Fest — June 2026",
     date: "2026-05-30",
