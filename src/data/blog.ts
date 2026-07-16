@@ -28,6 +28,25 @@ export interface BlogPost {
  */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "starship-13th-flight-demo-update",
+    title: "Critical Descent Demo Update — Starship's 13th Flight Test",
+    date: "2026-07-16",
+    excerpt:
+      "An update to Critical Descent's demo is now available to commemorate Starship's 13th flight test, with a preview of two off-world landing levels and several bugfixes.",
+    tags: ["update", "demo"],
+    content: `
+An update to Critical Descent's demo is now available to commemorate Starship's 13th flight test today.
+
+The update contains a preview of two levels in the off-world landing mode of the game, as well as bringing several small bugfixes to the demo.
+
+[Wishlist Critical Descent](https://store.steampowered.com/app/4329160/Critical_Descent/) and [try the Demo](https://store.steampowered.com/app/4476650/Critical_Descent_Demo/).
+
+Thank you!
+
+*— Endless Abyss Games*
+    `,
+  },
+  {
     slug: "leaderboard-update-live-steam-next-fest",
     title: "The Leaderboard Update is Live for Steam Next Fest!",
     date: "2026-06-15",
