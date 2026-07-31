@@ -49,18 +49,25 @@ const Admin = () => {
   }, [navigate, loadSubscribers]);
 
   const handleSend = async () => {
+    const post = blogPosts.find((p) => p.slug === selectedSlug);
+    if (!post) return;
     setSending(true);
     setResult("");
     const { data, error } = await supabase.functions.invoke("send-blog-email", {
-      body: { slug: selectedSlug },
+      body: { slug: post.slug, title: post.title, excerpt: post.excerpt },
     });
     setSending(false);
     if (error) {
       setResult(`Send failed: ${error.message}`);
       return;
     }
+    if (data?.error) {
+      setResult(`Send failed: ${data.error}`);
+      return;
+    }
     setResult(`Sent to ${data?.recipients ?? 0} subscribers.`);
   };
+
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
