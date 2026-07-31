@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { blogPosts } from "@/data/blog";
 
 const Blog = () => {
@@ -24,6 +25,13 @@ const Blog = () => {
           </p>
         </div>
       </section>
+
+      <section className="section-padding-x pb-10 sm:pb-12">
+        <div className="max-w-3xl mx-auto border border-border p-6 sm:p-8">
+          <NewsletterSignup source="blog" />
+        </div>
+      </section>
+
 
       <section className="section-padding-x pb-20 sm:pb-24 md:pb-32">
         <div className="max-w-3xl mx-auto space-y-8 sm:space-y-10 md:space-y-12">
