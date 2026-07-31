@@ -25,6 +25,9 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer className="py-6 sm:py-8 section-padding-x border-t border-border">
+      <div className="max-w-6xl mx-auto mb-8 sm:mb-10 pb-8 sm:pb-10 border-b border-border">
+        <NewsletterSignup source="footer" />
+      </div>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
         <span className="font-display font-bold text-[10px] sm:text-xs tracking-[0.2em] text-foreground/40 uppercase">
           Endless Abyss Games
