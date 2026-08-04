@@ -19,7 +19,7 @@ function field(block, name) {
 
 export function generateBlogFeed() {
   const src = readFileSync(path.join(root, "src/data/blog.ts"), "utf8");
-  const blocks = src.split(/\n\s{4}\{\n/).slice(1);
+  const blocks = src.split(/\n\s*\{\n/).slice(1);
   const posts = [];
   for (const block of blocks) {
     const slug = field(block, "slug");

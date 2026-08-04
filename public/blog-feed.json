@@ -1,3 +1,40 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "slug": "starship-13th-flight-demo-update",
+      "title": "Critical Descent Demo Update — Starship's 13th Flight Test",
+      "date": "2026-07-16",
+      "excerpt": "An update to Critical Descent's demo is now available to commemorate Starship's 13th flight test, with a preview of two off-world landing levels and several bugfixes."
+    },
+    {
+      "slug": "leaderboard-update-live-steam-next-fest",
+      "title": "The Leaderboard Update is Live for Steam Next Fest!",
+      "date": "2026-06-15",
+      "excerpt": "Critical Descent now features global leaderboards on every level, and the ability to race the runs of record-holders to see how they did it!"
+    },
+    {
+      "slug": "critical-descent-steam-next-fest-june-2026",
+      "title": "Critical Descent Joins Steam Next Fest — June 2026",
+      "date": "2026-05-30",
+      "excerpt": "Critical Descent will be participating in the June 2026 Steam Next Fest! A massive demo update releases on June 15th with global leaderboards and an expanded ghost system."
+    },
+    {
+      "slug": "critical-descent-demo-v3-update",
+      "title": "Critical Descent Demo Update — Celebrating Starship V3",
+      "date": "2026-05-23",
+      "excerpt": "Critical Descent's demo is updating to celebrate the 12th flight of SpaceX Starship and the debut of version 3. Explore remastered levels and a visual overhaul inspired by the new Pad 2 design."
+    },
+    {
+      "slug": "critical-descent-demo-april-27",
+      "title": "Critical Descent's Demo is releasing on April 27th!",
+      "date": "2026-04-27",
+      "excerpt": "Critical Descent's Demo is releasing on April 27th! Fly 10 intense missions on 2 different difficulties. Masterfully pilot the rocket for a catch in the tower's massive arms. Wishlist the game now to be notified when the demo releases!"
+    },
+    {
+      "slug": "we-are-live",
+      "title": "WE'RE LIVE — ENDLESS ABYSS GAMES HAS A WEBSITE",
+      "date": "2026-03-08",
+      "excerpt": "Our website is officially online, and so is this blog. Here's what to expect from Endless Abyss Games going forward."
+    }
+  ]
 }
