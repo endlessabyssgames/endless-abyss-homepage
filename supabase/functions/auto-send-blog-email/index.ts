@@ -1,10 +1,10 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 
-const GATEWAY_URL = "https://connector-gateway.lovable.dev/brevo";
+const RESEND_API_URL = "https://api.resend.com/emails/batch";
+const RESEND_BATCH_SIZE = 100; // Resend's batch endpoint accepts at most 100 emails per call
 const SITE_URL = "https://endlessabyssgames.com";
-const FROM_EMAIL = "news@endlessabyssgames.com";
-const FROM_NAME = "Endless Abyss Games";
+const FROM_EMAIL = "Endless Abyss Games <news@endlessabyssgames.com>";
 
 interface FeedPost {
   slug: string;
@@ -78,9 +78,8 @@ Deno.serve(async (req) => {
 
     if (pending.length === 0) return json({ sent: [] });
 
-    const lovableKey = Deno.env.get("LOVABLE_API_KEY");
-    const brevoKey = Deno.env.get("BREVO_API_KEY");
-    if (!lovableKey || !brevoKey) return json({ error: "Email provider not connected" }, 503);
+    const resendKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendKey) return json({ error: "Email provider not connected" }, 503);
 
     const { data: subs, error: subsError } = await admin
       .from("newsletter_subscribers")
@@ -94,11 +93,13 @@ Deno.serve(async (req) => {
       const postUrl = `${SITE_URL}/blog/${post.slug}`;
       let sent = 0;
 
-      for (let i = 0; i < (subs?.length ?? 0); i += 250) {
-        const chunk = subs!.slice(i, i + 250);
-        const messageVersions = chunk.map((s) => ({
-          to: [{ email: s.email }],
-          htmlContent: `
+      for (let i = 0; i < (subs?.length ?? 0); i += RESEND_BATCH_SIZE) {
+        const chunk = subs!.slice(i, i + RESEND_BATCH_SIZE);
+        const emails = chunk.map((s) => ({
+          from: FROM_EMAIL,
+          to: [s.email],
+          subject: post.title,
+          html: `
 <!doctype html><html><body style="background:#ffffff;margin:0;padding:24px;font-family:Arial,Helvetica,sans-serif;color:#111111;">
   <div style="max-width:560px;margin:0 auto;">
     <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888888;margin:0 0 16px;">Endless Abyss Games</p>
@@ -113,24 +114,18 @@ Deno.serve(async (req) => {
 </body></html>`,
         }));
 
-        const res = await fetch(`${GATEWAY_URL}/smtp/email`, {
+        const res = await fetch(RESEND_API_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${lovableKey}`,
-            "X-Connection-Api-Key": brevoKey,
+            Authorization: `Bearer ${resendKey}`,
           },
-          body: JSON.stringify({
-            sender: { name: FROM_NAME, email: FROM_EMAIL },
-            subject: post.title,
-            messageVersions,
-            htmlContent: "<html><body></body></html>",
-          }),
+          body: JSON.stringify(emails),
         });
 
         if (!res.ok) {
           const details = await res.text();
-          console.error(`Brevo send failed [${res.status}]: ${details}`);
+          console.error(`Resend send failed [${res.status}]: ${details}`);
           return json({ error: "Provider request failed", status: res.status, details, sent: sentSlugs }, res.status);
         }
         sent += chunk.length;

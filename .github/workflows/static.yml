@@ -40,3 +40,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify subscribers of new posts
+        run: |
+          sleep 20
+          set -a
+          source .env
+          set +a
+          curl -sf -X POST "${VITE_SUPABASE_URL}/functions/v1/auto-send-blog-email" \
+            -H "Authorization: Bearer ${VITE_SUPABASE_PUBLISHABLE_KEY}"

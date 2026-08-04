@@ -18,7 +18,7 @@ function field(block, name) {
 }
 
 export function generateBlogFeed() {
-  const src = readFileSync(path.join(root, "src/data/blog.ts"), "utf8");
+  const src = readFileSync(path.join(root, "src/data/blog.ts"), "utf8").replace(/\r\n/g, "\n");
   const blocks = src.split(/\n\s*\{\n/).slice(1);
   const posts = [];
   for (const block of blocks) {
