@@ -2,9 +2,12 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
 
 const RESEND_API_URL = "https://api.resend.com/emails/batch";
+const RESEND_SINGLE_URL = "https://api.resend.com/emails";
 const RESEND_BATCH_SIZE = 100; // Resend's batch endpoint accepts at most 100 emails per call
 const SITE_URL = "https://endlessabyssgames.com";
 const FROM_EMAIL = "Endless Abyss Games <news@endlessabyssgames.com>";
+const SUBSCRIBER_WARNING_THRESHOLD = 80; // heads-up before Resend's free-tier 100/day send cap
+const SUBSCRIBER_WARNING_MARKER = "__subscriber_threshold_warning__";
 
 interface FeedPost {
   slug: string;
@@ -70,6 +73,41 @@ Deno.serve(async (req) => {
     if (sendsError) return json({ error: sendsError.message }, 500);
     const alreadySent = new Set((sends ?? []).map((s) => s.post_slug));
 
+    const resendKey = Deno.env.get("RESEND_API_KEY");
+    const alertEmail = Deno.env.get("ALERT_EMAIL");
+
+    // One-time heads-up once the subscriber list approaches the free-tier daily send cap.
+    if (resendKey && alertEmail && !alreadySent.has(SUBSCRIBER_WARNING_MARKER)) {
+      const { count, error: countError } = await admin
+        .from("newsletter_subscribers")
+        .select("id", { count: "exact", head: true })
+        .eq("status", "subscribed");
+      if (countError) {
+        console.error(`Subscriber count check failed: ${countError.message}`);
+      } else if ((count ?? 0) >= SUBSCRIBER_WARNING_THRESHOLD) {
+        const warnRes = await fetch(RESEND_SINGLE_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${resendKey}`,
+          },
+          body: JSON.stringify({
+            from: FROM_EMAIL,
+            to: [alertEmail],
+            subject: "Newsletter list approaching Resend free-tier limit",
+            html: `<p>Your newsletter list has reached <strong>${count}</strong> subscribed emails, approaching Resend's free-tier cap of 100 emails/day. A single blog post sent to your full list may now exceed the daily cap partway through.</p><p>Consider upgrading to a paid Resend plan before your next post to avoid a failed/partial send.</p>`,
+          }),
+        });
+        if (warnRes.ok) {
+          await admin
+            .from("newsletter_sends")
+            .insert({ post_slug: SUBSCRIBER_WARNING_MARKER, recipient_count: count ?? 0 });
+        } else {
+          console.error(`Threshold warning email failed [${warnRes.status}]: ${await warnRes.text()}`);
+        }
+      }
+    }
+
     // Only consider posts published in the last 30 days, oldest first.
     const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
     const pending = posts
@@ -78,7 +116,6 @@ Deno.serve(async (req) => {
 
     if (pending.length === 0) return json({ sent: [] });
 
-    const resendKey = Deno.env.get("RESEND_API_KEY");
     if (!resendKey) return json({ error: "Email provider not connected" }, 503);
 
     const { data: subs, error: subsError } = await admin
