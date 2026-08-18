@@ -28,6 +28,21 @@ export interface BlogPost {
  */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "critical-descent-releases-september-1st",
+    title: "Critical Descent Releases September 1st",
+    date: "2026-08-17",
+    excerpt:
+      "Critical Descent is releasing on September 1st. Get ready to pilot the world's most powerful rocket across 75 handcrafted levels, set on Earth, the Moon, and Mars. The game will release with full global leaderboard support across every level, as well as supporting the Steam Deck.",
+    tags: ["announcement", "release"],
+    content: `
+Critical Descent is releasing on September 1st. Get ready to pilot the world's most powerful rocket across 75 handcrafted levels, set on Earth, the Moon, and Mars. The game will release with full global leaderboard support across every level, as well as supporting the Steam Deck.
+
+[Wishlist Critical Descent](https://store.steampowered.com/app/4329160/Critical_Descent/) now so you don't miss it!
+
+*— Endless Abyss Games*
+    `,
+  },
+  {
     slug: "starship-13th-flight-demo-update",
     title: "Critical Descent Demo Update — Starship's 13th Flight Test",
     date: "2026-07-16",
