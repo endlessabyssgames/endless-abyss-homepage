@@ -2,7 +2,7 @@ name: Supabase Keep-Alive
 
 on:
   schedule:
-    - cron: '0 12 * * 1,4' # Monday & Thursday at 12:00 UTC - well under Supabase's 7-day auto-pause window
+    - cron: '0 12 * * *' # daily at 12:00 UTC - well under Supabase's 7-day auto-pause window
   workflow_dispatch:
 
 jobs:
@@ -12,7 +12,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Ping Supabase (prevents free-tier auto-pause, retries any missed sends)
+      - name: Ping Supabase REST API (unambiguous database activity)
+        run: |
+          set -a
+          source .env
+          set +a
+          curl -sf "${VITE_SUPABASE_URL}/rest/v1/newsletter_subscribers?select=id&limit=1" \
+            -H "apikey: ${VITE_SUPABASE_PUBLISHABLE_KEY}" \
+            -H "Authorization: Bearer ${VITE_SUPABASE_PUBLISHABLE_KEY}"
+
+      - name: Ping Supabase Edge Function (prevents free-tier auto-pause, retries any missed sends)
         run: |
           set -a
           source .env
