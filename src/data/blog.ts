@@ -28,6 +28,30 @@ export interface BlogPost {
  */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "critical-descent-available-now",
+    title: "Critical Descent is Available Now!",
+    date: "2026-09-01",
+    excerpt:
+      "Critical Descent is out now! Fly the world's most powerful rocket in a highly realistic physics simulation across 75 levels on Earth, the Moon, and Mars.",
+    tags: ["announcement", "release"],
+    content: `
+**Critical Descent is out now!**
+
+Fly the world's most powerful rocket in a highly realistic physics simulation.
+
+- Fly across 75 levels
+- Pilot your rocket over 3 different worlds, Earth, the Moon, and Mars
+- Race your own best time on every level
+- Compete on global leaderboards and try to claim the top spot
+
+Thank you to everyone who has supported Critical Descent, and please, enjoy the game.
+
+[Get Critical Descent on Steam](https://store.steampowered.com/app/4329160/Critical_Descent/)
+
+*— Endless Abyss Games*
+    `,
+  },
+  {
     slug: "critical-descent-releases-september-1st",
     title: "Critical Descent Releases September 1st",
     date: "2026-08-17",
