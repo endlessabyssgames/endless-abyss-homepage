@@ -9,6 +9,7 @@ export interface BlogPost {
   coverImage?: string;
   tags: string[];
   content: string; // Markdown content
+  skipEmail?: boolean; // Set to true to publish without emailing subscribers
 }
 
 /**
@@ -24,9 +25,24 @@ export interface BlogPost {
  *   content: `
  * Your **markdown** content here.
  *   `,
+ *   skipEmail: true, // optional - omit (or set false) to email subscribers as usual
  * },
  */
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "games-ardor-top-steam-games-september-2026",
+    title: "Critical Descent Featured in Games Ardor's Top Steam Games",
+    date: "2026-09-12",
+    excerpt:
+      "Critical Descent was featured in Games Ardor's Top Steam Games for September 2026.",
+    tags: ["press"],
+    skipEmail: true,
+    content: `
+Critical Descent was featured in Games Ardor's Top Steam Games for September 2026.
+
+[Read the feature on Games Ardor](https://gamesardor.net/top-steam-games-september-2026/)
+    `,
+  },
   {
     slug: "critical-descent-available-now",
     title: "Critical Descent is Available Now!",

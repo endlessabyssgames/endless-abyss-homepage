@@ -14,6 +14,7 @@ interface FeedPost {
   title: string;
   date: string;
   excerpt: string;
+  skipEmail?: boolean;
 }
 
 function escapeHtml(s: string) {
@@ -36,7 +37,8 @@ function isValidPost(p: unknown): p is FeedPost {
     typeof o.date === "string" &&
     /^\d{4}-\d{2}-\d{2}$/.test(o.date) &&
     typeof o.excerpt === "string" &&
-    o.excerpt.length <= 2000
+    o.excerpt.length <= 2000 &&
+    (o.skipEmail === undefined || typeof o.skipEmail === "boolean")
   );
 }
 
@@ -111,7 +113,7 @@ Deno.serve(async (req) => {
     // Only consider posts published in the last 30 days, oldest first.
     const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
     const pending = posts
-      .filter((p) => !alreadySent.has(p.slug) && Date.parse(p.date) >= cutoff)
+      .filter((p) => !p.skipEmail && !alreadySent.has(p.slug) && Date.parse(p.date) >= cutoff)
       .sort((a, b) => a.date.localeCompare(b.date));
 
     if (pending.length === 0) return json({ sent: [] });

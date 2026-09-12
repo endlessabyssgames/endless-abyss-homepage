@@ -17,6 +17,12 @@ function field(block, name) {
   }
 }
 
+function boolField(block, name) {
+  const re = new RegExp(`${name}:\\s*(true|false)`);
+  const m = block.match(re);
+  return m ? m[1] === "true" : false;
+}
+
 export function generateBlogFeed() {
   const src = readFileSync(path.join(root, "src/data/blog.ts"), "utf8").replace(/\r\n/g, "\n");
   const blocks = src.split(/\n\s*\{\n/).slice(1);
@@ -26,7 +32,8 @@ export function generateBlogFeed() {
     const title = field(block, "title");
     const date = field(block, "date");
     const excerpt = field(block, "excerpt");
-    if (slug && title && date) posts.push({ slug, title, date, excerpt });
+    const skipEmail = boolField(block, "skipEmail");
+    if (slug && title && date) posts.push({ slug, title, date, excerpt, ...(skipEmail ? { skipEmail: true } : {}) });
   }
   writeFileSync(
     path.join(root, "public/blog-feed.json"),
