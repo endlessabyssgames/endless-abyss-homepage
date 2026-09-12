@@ -21,7 +21,7 @@ const Blog = () => {
             Blog
           </h1>
           <p className="text-foreground/50 text-sm font-body leading-relaxed max-w-xl">
-            Development logs, announcements, and behind-the-scenes updates from the studio.
+            Announcements, updates, and release news from the studio.
           </p>
         </div>
       </section>
