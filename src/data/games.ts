@@ -28,7 +28,7 @@ export const games: GameData[] = [
   {
     slug: "critical-descent",
     title: "Critical Descent",
-    tagline: "Coming Soon",
+    tagline: "Available Now",
     description:
       "Master the hardcore, Starship-style catch maneuver in Critical Descent. Pilot massive boosters and agile upper stages across 50+ handcrafted levels on Earth, the Moon, and Mars. Featuring global leaderboards, multiple difficulties, and a realistic physics system, for the ultimate landing experience.",
     longDescription: [
@@ -50,10 +50,10 @@ export const games: GameData[] = [
       { label: "Platform", value: "PC" },
       { label: "Engine", value: "Unity Engine" },
       { label: "Players", value: "Single Player" },
-      { label: "Status", value: "In Development" },
-      { label: "Release", value: "2026" },
+      { label: "Status", value: "Released" },
+      { label: "Release Date", value: "September 1, 2026" },
     ],
-    status: "In Development",
+    status: "Released",
     steamUrl: "https://store.steampowered.com/app/4329160/Critical_Descent/",
     trailerUrl: "https://www.youtube-nocookie.com/embed/nADDyVv6A7A",
     demoUrl: "https://store.steampowered.com/app/4476650/Critical_Descent_Demo/",
